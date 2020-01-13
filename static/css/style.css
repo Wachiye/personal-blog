@@ -235,8 +235,11 @@ div.mainPanel{
 .bio-brief{
 display: none;
 }
-	.activity .image, .activity .company-details{
+	.activity .image{
 float: left;
+}
+ .activity .company-details{
+float: right;
 
 }
 .activity .company-details{
