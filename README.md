@@ -1,18 +1,13 @@
 # Description
-Personal Blog
-
-
-#Tools
+  Personal Blog
+  
+# Tools
 PHP
 HTML, CSS
 
-
-#Author
+# Author
 Name: Wachiye Jeremiah Siranjofu
 email: siranjofuw@gmail.com
 
-
-#Contributors
+# Contributors
 This project has no other contributors
-
-
