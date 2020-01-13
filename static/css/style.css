@@ -1,0 +1,362 @@
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+
+div.mainPanel{
+	min-height: 500px;
+	width: 80%;
+	overflow-x: hidden;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+	margin: auto;
+}
+
+.header, .nav, .content, .footer{
+	width: 100%;
+}
+
+.header{
+	text-align: center;
+	height: 317px;
+	margin: auto;
+	background: url("../img/header.png");
+	background-repeat: no-repeat;
+	background-size: 100% 317px;
+}
+#show{
+	display: none;
+}
+.nav{
+	height: 10%;
+	padding: 8px;
+	color: white;
+	background-color: brown;
+}
+.nav ul{
+	float: right;
+}
+.nav ul li{
+	display: inline-flex;
+}
+.nav ul li a{
+	padding: 3px;
+	text-decoration: none;
+	color: white;
+}
+.nav ul li a:hover{
+	background-color: lightblue;
+	color: black;
+	border-radius: 5px;
+}
+.active{
+	background-color: grey;
+}
+.content{
+	padding: 8px;
+}
+.bio-brief{
+	width: 80%;
+	text-align: center;
+	height: 300px;
+	margin: auto;
+}
+.bio-brief img{
+	margin: auto;
+	border-radius: 10px;
+}
+
+.bio p{
+	padding: 8px;
+
+}
+.preview{
+	height: 100px;
+	padding-top: 30px;	
+	margin: auto;
+	width: 80%;
+}
+.preview img{
+	border-radius: 100%;
+	margin-right: 2px;
+}
+.preview img, .preview-data{
+	float: left;
+}
+.preview-data{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	padding-top: 10px;
+	padding-left: 5px;
+}
+.preview a{
+	color: blue;
+	font-size: 20px;
+	font-weight: bold;
+	cursor: pointer;
+	text-transform: uppercase;
+	text-decoration: none;
+}
+.post{
+	width: 80%;
+	margin: auto;
+}
+.post-preview{
+	height: 150px;
+	width: 80%;
+	margin: auto;
+}
+.post-preview img{
+	width: 100%;
+	height: 120px;
+	border-radius: 10px;
+}
+.post-preview h5{
+	float: left;
+	color: green;
+}
+.post-preview p{
+	float: right;
+}
+.post-content{
+	clear: both;
+	text-align: left;
+}
+.post-content p{
+	margin-bottom: 5px;
+}
+.footer{
+	height: 10%;
+	background-color: brown;
+	color: white;
+	align-items: center;
+}
+.social-links, .copyright, .developer{
+	width: 33%;
+	float: left;
+	text-align: center;
+}
+.social-links ul{
+	list-style-type: none;
+}
+.social-links ul li{
+	float: left;
+	width: 33%;
+}
+.social-links ul li a{
+	text-decoration: none;
+	color: white;
+}
+.developer{
+	padding-bottom: 5px;
+}
+.developer a{
+	text-decoration: underline;
+	color: inherit;
+}
+.content h4{
+	text-align: center;
+	color: grey;
+	font-style: oblique;
+	margin-bottom: 5px;
+}
+.activity{
+	width: 100%;
+	height: auto;
+	float: left;
+	margin-bottom: 5px;
+}
+.activity .image{
+	height: 100%;
+	width: 30%;
+	text-align: center;
+	float: left;
+}
+.image img{
+	border-radius: 10px;
+}
+.company-details span{
+	margin-bottom: 2px;
+}
+.company-details, .duty{
+	width: 70%;
+	height: auto;
+	display: flex;
+	flex-direction: column;
+	padding-bottom: 5px;
+	float: left;
+} 
+.best-pics{
+	clear: both;
+	margin-top: 10px;
+	width: 100%;
+}
+.bio div.bio-span{
+	color: green;
+	width: 100%;
+	text-align: center;
+	margin-bottom: 5px;
+}
+div.category{
+	width: 100%;
+	color: blue;
+	text-align: left;
+	padding-bottom: 5px;
+}
+.moment{
+	padding: 0 6px;
+	float: left;
+	width: 24.99999%;
+}
+.gallery{
+	border: 1px solid #ccc;
+}
+div.gallery:hover{
+	border: 1px solid #777;
+}
+div.gallery img, div.gallery video{
+	width: 100%;
+	height: auto;
+}
+
+div.caption{
+	padding: 15px;
+	text-align: center;
+}
+@media only screen and (max-width: 500px){
+	.moment{
+		width: 100%;
+	}
+	.header{
+		background-image: url("../img/me.jpg");
+	}
+	#show{
+		display: flex;
+		font-size: 24px;
+		letter-spacing: 4px;
+		color: white;
+		transform: translate(60%,500%);
+	}
+	.footer{	
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+	}
+}
+@media only screen and (max-width: 700px){
+	.moment{
+		width: 49.99999%;
+		margin: 6px 0;
+	}
+	.social-links, .copyright, .developer{
+		width: 100%;
+	}
+}
+
+@media only screen and (max-width: 768px){
+	div.span{
+		width: 100%;
+		clear: both;
+		color: blue;
+		text-align: left;
+	}
+	#skills ul {
+		list-style-type: none;
+	}
+	#skills ul li{
+		width: auto;
+		float: left;
+		padding: 2px;
+		margin-right: 5px;
+		list-style-type: none;
+		margin-bottom: 5px;
+		background-color: brown;
+		color: white;
+		border-radius: 5px;
+		text-align: center;
+	}
+}
+@media only screen and  (min-width: 768px){
+	div.social-links, div.copyright{
+		width: 50%;
+		margin-bottom: 10px;
+	}
+	div.developer{
+		width: 100%;
+	}
+	.post{
+		width: 100%;
+	}
+	.post-preview{
+		width: 40%;
+		padding-left: 5px;
+		text-align: center;
+	}
+	.post-preview h5, .post-preview p{
+		width: 100%;
+	}
+	.post-preview h5{
+		text-transform: uppercase;
+	}
+	.post-preview img{
+		width: 100%;
+		clear: both;
+
+	}
+
+	.bio-brief, .bio{
+		width: 100%;
+		clear: both;
+	}
+	.bio-brief img{
+		width: 80%;
+		height: 100%;
+		margin: auto;
+	}
+	#about, #skills{
+		float: left;
+	}
+	#about{
+		width: 80%;
+	}
+	#skills{
+		width: 20%;
+		padding-left: 5px;
+	}
+	#skills ul li{
+		list-style-type: none;
+		margin-bottom: 5px;
+		background-color: brown;
+		color: white;
+		border-radius: 5px;
+		text-align: center;
+	}
+
+}
+
+
+@media only screen and  (min-width: 924px){
+	#about, #skills{
+		float: left;
+	}
+	#about{
+		width: 80%;
+	}
+	#skills{
+		width: 20%;
+		padding-left: 5px;
+	}
+	#skills ul li{
+		list-style-type: none;
+		margin-bottom: 5px;
+		background-color: brown;
+		color: white;
+		border-radius: 5px;
+		text-align: center;
+	}
+}
