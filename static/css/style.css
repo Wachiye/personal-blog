@@ -235,19 +235,9 @@ div.mainPanel{
 .bio-brief{
 display: none;
 }
-	.activity .image{
-float: left;
-}
- .activity .company-details{
-float: right;
-
-}
-.activity .company-details{
-width: 70%;
-padding-left: 10px;
-}
-.activity .duty{
+	.activity .image,.activity .company-details,.activity .duty {
 width: 100%;
+height: auto;
 clear: both;
 margin-bottom: 10px;
 
