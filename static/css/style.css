@@ -241,6 +241,7 @@ float: left;
 }
 .activity .company-details{
 width: 70%;
+padding-left: 10px;
 }
 .activity .duty{
 width: 100%;
