@@ -229,6 +229,9 @@ div.caption{
 	text-align: center;
 }
 @media only screen and (max-width: 500px){
+div.mainPanel{
+  width: 100%;
+}
 	.moment{
 		width: 100%;
 	}
