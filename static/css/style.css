@@ -232,6 +232,9 @@ div.caption{
 div.mainPanel{
   width: 100%;
 }
+.bio-brief{
+display: none;
+}
 	.moment{
 		width: 100%;
 	}
