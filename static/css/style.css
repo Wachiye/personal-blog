@@ -235,7 +235,10 @@ div.mainPanel{
 .bio-brief{
 display: none;
 }
-	.moment{
+	.activity {
+display:flex;
+}
+.moment{
 		width: 100%;
 	}
 	.header{
