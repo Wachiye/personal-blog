@@ -235,9 +235,18 @@ div.mainPanel{
 .bio-brief{
 display: none;
 }
-	.activity {
-display:flex;
+	.activity .image, .activity .company-details{
+float: left;
+
 }
+.activity .company-details{
+width: 70%;
+}
+.activity .duty{
+width: 100%;
+clear: both;
+}
+
 .moment{
 		width: 100%;
 	}
