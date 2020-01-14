@@ -8,7 +8,7 @@
 	<meta name="author" content="Wachiye Jeremiah Siranjofu">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="static/css/style.css">
-	<link rel="icon" href=""static/img/icon.ico">
+	<link rel="icon" type="image/ico" href="static/img/icon.ico">
 </head>
 <body>
 <div class="mainPanel">
