@@ -75,7 +75,7 @@
 				<div class="gallery">
 					<img src="./static/img/dev-fest-2019.jpg" width="600" height="400">
 					<div class="caption">
-						Attending <a href="https://www.meetup.com/gdgeledoret/events/">GDG Eldoret  in 2019 at Rupa's Mall</a>
+						Attending <a href="https://www.meetup.com/gdgeldoret/events/">GDG Eldoret  in 2019 at Rupa's Mall</a>
 					</div>
 				</div>
 			</div>
