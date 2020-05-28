@@ -146,7 +146,7 @@
 								<li>Front End: HTML, CSS, JavaScript, Bootstrap 4</li>
 							</ul>
 						</p>
-						<a href="#" class="pull-right" target="_blank" > More 
+						<a href="https://github.com/Wachiye/online-shop" class="pull-right" target="_blank" > More 
 							<i class="fa fa-arrow-right "></i>
 						</a>
 					</div>
