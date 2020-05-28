@@ -63,7 +63,7 @@
 					<div class="card-body">
 						<h6 class="card-title">My Portfolio Design</h6>
 						<p class="card-text text-muted">I designed this portfolio using HTML, CSS, JavaScript, Bootstrap 4 and PHP(basically for contacting me). I love using bootstrap because it's mobile-first. </p>
-						<a href="#" class="pull-right" target="_blank" > More 
+						<a href="https://github.com/Wachiye/personal-blog/blob/v2" class="pull-right" target="_blank" > More 
 							<i class="fa fa-arrow-right "></i>
 						</a>
 					</div>
@@ -81,7 +81,7 @@
 					</div>
 				</div>
 				<div class="col-sm-4 card mb-1">
-					<img src="./img/me.jpeg" class="card-img-top img-responsive" height="200px" alt="me" >
+					<img src="./img/lib.jpeg" class="card-img-top img-responsive" height="200px" alt="me" >
 					<div class="card-body">
 						<h6 class="card-title">Library Management System </h6>
 						<p class="card-text text-muted">This is console/commad prompt system written in C. Features include: <br>
@@ -92,13 +92,13 @@
 								<li>Adding/Editing/Deleting a book</li>
 							</ul>
 						</p>
-						<a href="#" class="pull-right" target="_blank" > More 
+						<a href="https://github.com/Wachiye/library-management-system" class="pull-right" target="_blank" > More 
 							<i class="fa fa-arrow-right "></i>
 						</a>
 					</div>
 				</div>
 				<div class="col-sm-4 card mb-1">
-					<img src="./img/me.jpeg" class="card-img-top img-responsive" height="200px" alt="me" >
+					<img src="./img/lib.jpeg" class="card-img-top img-responsive" height="200px" alt="me" >
 					<div class="card-body">
 						<h6 class="card-title">Library System UI Design</h6>
 						<p class="card-text text-muted">Design of a library system using javafx using sceen builder. <br>
@@ -110,13 +110,13 @@
 								<li>and other screen for functions such as Adding/Editing/Deleting</li>
 							</ul>
 						</p>
-						<a href="#" class="pull-right" target="_blank" > More 
+						<a href="https://github.com/Wachiye/libray-ui-javafx" class="pull-right" target="_blank" disabled> More 
 							<i class="fa fa-arrow-right "></i>
 						</a>
 					</div>
 				</div>
 				<div class="col-sm-4 card mb-1">
-					<img src="./img/me.jpeg" class="card-img-top img-responsive" height="200px" alt="me" >
+					<img src="./img/stock.jpeg" class="card-img-top img-responsive" height="200px" alt="me" >
 					<div class="card-body">
 						<h6 class="card-title">Stock Management System </h6>
 						<p class="card-text text-muted">A WinOS Desktop Application written in Visual Basic. Features include: <br>
@@ -129,7 +129,7 @@
 								<li>Database Integration (SQL database)</li>
 							</ul>
 						</p>
-						<a href="#" class="pull-right" target="_blank" > More 
+						<a href="https://github.com/Wachiye/stock-management-system" class="pull-right" target="_blank" disabled> More 
 							<i class="fa fa-arrow-right "></i>
 						</a>
 					</div>
