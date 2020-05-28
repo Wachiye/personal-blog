@@ -80,6 +80,17 @@
 						</a>
 					</div>
 				</div>
+                                <div class="col-sm-4 card mb-1">
+					<img src="./img/db.jpeg" class="card-img-top img-responsive" height="200px" alt="me" >
+					<div class="card-body">
+						<h6 class="card-title">A Hospital Database Schema </h6>
+						<p class="card-text text-muted">A RDMS Schema for a hospital management system<br>
+						</p>
+						<a href="https://github.com/Wachiye/a-hospital-database-schema" class="pull-right" target="_blank" > More 
+							<i class="fa fa-arrow-right "></i>
+						</a>
+					</div>
+				</div>
 				<div class="col-sm-4 card mb-1">
 					<img src="./img/lib.jpeg" class="card-img-top img-responsive" height="200px" alt="me" >
 					<div class="card-body">
