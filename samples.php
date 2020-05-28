@@ -75,7 +75,7 @@
 						<p class="card-text text-muted"> Languages used: HTML, CSS, JavaScript, Bootstrap, Node Js, Express Js and the Edge templating engine. <br>
 							This includes integration with MySQL(SQL database) for the first version, MingoDB(NoSql database) for the second version. It has admin panel(pure css only)
 						</p>
-						<a href="#" class="pull-right" target="_blank" > More 
+						<a href="https://github.com/Wachiye/blog" class="pull-right" target="_blank" > More 
 							<i class="fa fa-arrow-right "></i>
 						</a>
 					</div>
