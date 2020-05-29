@@ -1,0 +1,72 @@
+* {
+    padding : 0;
+    margin : 0;
+}
+html, body{
+	min-height: 100vh;
+}
+
+body {
+    background : #dddccc;
+    color : #444;
+}
+
+div#sm-header{
+	min-height: 20vh;
+	background: url('../img/bg.jpeg') no-repeat center center fixed;
+	background-size: cover;
+	margin-bottom: 10px;
+	text-align: center;
+	padding-right: 10px;
+	font-size: 300%;
+	padding-top: 50px;
+}
+
+#navigation .nav{
+	width:100%;
+	display:inline-flex;
+	justify-content: space-between;
+}
+
+li.active{
+	border-bottom: 1px solid green;
+}
+.card img.card-img-top{
+	width:90%;
+	margin:auto;
+	margin-top:10px;
+}
+
+ul.list-group li{
+ 	background: none;
+}
+
+div.cv a a#download{
+	background:#FFF;
+	padding:5px;
+	border-radius:10px;
+	border: none;
+	margin-left: 10px;
+	height: 30px;
+	text-decoration: none;
+	color:#000;
+}
+
+h4#heading i.fa{
+	margin:5px;
+}
+
+.service, .reference, #education{
+	display:flex;
+	flex-direction:column;
+	justify-content: space-between;
+}
+.service{
+	text-align:center;
+	width:32%;
+	height:70px;
+	float:left;
+	padding:5px;
+	margin-bottom:5px;
+}
+
