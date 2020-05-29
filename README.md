@@ -1,17 +1,17 @@
-#Project Name
+# Project Name
 My portflio
 
-#Description
+# Description
 A portfolio website
 
-#Features
+# Features
 Resume
 Activies/Sample Work
 Contact Page
 Hire me link
 
-#Languages
+# Languages
 HTML, CSS, JavaScript, Bootstrap 4, PHP
 
-#Authors
+# Authors
 Wachiye Siranjofu <siranjofuw@gmail.com>
