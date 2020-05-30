@@ -60,22 +60,22 @@
 			<div class="col-sm-7 my-1">
 				<p class="text-info">Have an issue? Need some help or clarification? Let's get in touch. All fields are required.
 				</p>
-				<form action="./php/contact_me.php" method="post" enctype="multipart/form-data">
+				<form action="https://docs.google.com/forms/d/e/1FAIpQLSdVi0QCae9ZvoMgIc_CEIR6CzZ8SLQnWL0KhIuTToo_NmXoyQ/formResponse" method="post" >
 					<div class="form-group">
-						<label for="name">Name</label>
-						<input type="text" class="form-control form-control-sm" name="name" placeholder="Enter your name" required>
+						<label for="entry.2005620554">Name</label>
+						<input type="text" class="form-control form-control-sm" name="entry.2005620554" placeholder="Enter your name" required>
 					</div>
 					<div class="form-group">
-						<label for="email">Email</label>
-						<input type="email" class="form-control form-control-sm" name="email" placeholder="Email address" required>
+						<label for="entry.1045781291">Email</label>
+						<input type="email" class="form-control form-control-sm" name="entry.1045781291" placeholder="Email address" required>
 					</div>
 					<div class="form-group">
-						<label for="phone">Phone</label>
-						<input type="tel" class="form-control form-control-sm" name="phone" placeholder="Phone number" required>
+						<label for="entry.1166974658">Phone</label>
+						<input type="tel" class="form-control form-control-sm" name="entry.1166974658" placeholder="Phone number" required>
 					</div>
 					<div class="form-group">
-						<label for="message">Your Message</label>
-						<textarea class="form-control form-control-sm" name="message" placeholder="Please type your message Here."  rows="7" required></textarea>
+						<label for="entry.839337160">Your Message</label>
+						<textarea class="form-control form-control-sm" name="entry.839337160" placeholder="Please type your message Here."  rows="7" required></textarea>
 					</div>
 					<button type="submit"  name="submit" value="submit" class="btn btn-primary btn-block">Contact Me</button> 
 				</form>
