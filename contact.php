@@ -13,6 +13,11 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         
 	<link rel="stylesheet" href="./css/style.css">
+        <script>
+                function displayMessage () {
+                        window.location.href="./messages.php";
+                }
+        </script> 
 </head>
 <body>
 	<div class="container-fluid">
@@ -61,9 +66,8 @@
 			<div class="col-sm-7 my-1">
 				<p class="text-info">Have an issue? Need some help or clarification? Let's get in touch. All fields are required.
 				</p>
-                                <form action="https://docs.google.com/forms/d/e/1FAIpQLSdVi0QCae9ZvoMgIc_CEIR6CzZ8SLQnWL0KhIuTToo_NmXoyQ/formResponse" method="post" onsubmit="window.location.href='./contact.php?res=send'">
-                                        <? php if(isset($_GET['res'])){ echo "Message sent. Thank you.";} ?>
-					<div class="form-group">
+                                <form action="https://docs.google.com/forms/d/e/1FAIpQLSdVi0QCae9ZvoMgIc_CEIR6CzZ8SLQnWL0KhIuTToo_NmXoyQ/formResponse" method="post" onsubmit="displayMessage()">
+                                        <div class="form-group">
 						<label for="entry.2005620554">Name</label>
 						<input type="text" class="form-control form-control-sm" name="entry.2005620554" placeholder="Enter your name" required>
 					</div>
