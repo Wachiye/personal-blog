@@ -61,3 +61,11 @@
                           <p class="text-success">Your message has been received and will be acted upon ASAP. Thank you
                         </div>
                 </div>
+                <div class="row">
+			<div class="col-12  bg-dark text-light text-center push-bottom">
+				<div>Copyright &copy; 2020 (v2)</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
