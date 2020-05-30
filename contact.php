@@ -62,7 +62,7 @@
 				<p class="text-info">Have an issue? Need some help or clarification? Let's get in touch. All fields are required.
 				</p>
                                 <form action="https://docs.google.com/forms/d/e/1FAIpQLSdVi0QCae9ZvoMgIc_CEIR6CzZ8SLQnWL0KhIuTToo_NmXoyQ/formResponse" method="post" onsubmit="window.location.href='./contact.php?res=send'">
-                                        <? php if(isset($_GET['res']){ echo "Message sent. Thank you.";} ?>
+                                        <? php if(isset($_GET['res'])){ echo "Message sent. Thank you.";} ?>
 					<div class="form-group">
 						<label for="entry.2005620554">Name</label>
 						<input type="text" class="form-control form-control-sm" name="entry.2005620554" placeholder="Enter your name" required>
