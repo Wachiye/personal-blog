@@ -1,0 +1,290 @@
+.main-panel{
+    background: #ffffff;
+    padding: 0;
+}
+.main-panel .main-header{
+    display: grid;
+    grid-template-columns: 0.4fr 1fr;
+    grid-template-areas:
+    "about_left about_right";
+    background: none;
+    padding: 0;
+    padding-top: 0;
+    padding-bottom: 20px;
+    width: 100%;
+    transition: 0.6 all linear;
+}
+
+.main-header .main-header-left{
+    grid-area: about_left;
+    display: block;
+    padding: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    position: relative;
+}
+.main-header-left h2{
+    display: none;
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    transition: 0.6 all linear;
+}
+.main-header-left img{
+    display: block;
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0;
+    border: none;
+    animation: none;
+    padding: 0;
+}
+.main-header .main-header-right{
+    grid-area: about_right;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 80px auto auto;
+    grid-template-areas:
+    "top"
+    "middle"
+    "bottom" ;
+    transition: 0.6 all linear;
+}
+
+.main-header-right .top{
+    grid-area: top;
+    background: #6cabff;
+    opacity: 0.6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    /* padding-top: 10px;
+    padding-bottom: 10px; */
+}
+.main-header-right .middle{
+    grid-area: middle;
+    background-color: #343a40;
+    color: #A5A5A5;
+    text-align: left;
+    padding:20px;
+    text-transform: uppercase;
+}
+.middle span{
+    color: #6cabff;
+}
+.middle p{
+    letter-spacing: 2px;
+    font-size: larger;
+}
+.middle address{
+    font-style: italic;
+}
+.main-header-right .bottom{
+    grid-area: bottom;
+    display: block;
+    background: #6cabff;
+    color: #343a40;
+}
+.bottom a{
+    text-decoration: none;
+    text-transform: lowercase;
+    color: #ffffff;
+}
+.main-content{
+    margin-top: 0;
+    padding-top: 20px;
+    display: grid;
+    grid-template-columns: 0.6fr 1fr;
+}
+.main-content .main-content-left{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: unset;
+    text-align: left;
+    padding: 10px;
+}
+.main-content-left h2{
+    text-align: left;
+    align-items: left;
+}
+.main-content-left h2::after{
+    content: none;
+}
+.main-content-left p{
+    line-height: 1.5;
+    text-align: left;
+}
+.main-content .main-content-right{
+    min-height: 400px;
+    text-align: left;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+    "right_left right_right";
+}
+.main-content-right .right-left{
+    grid-area: right_left;
+}
+.right_left h2{
+    text-align: left;
+}
+.right_left .skill-group{
+    padding-top: 10px;
+    margin-bottom: 5px;
+}
+.skill-group h3{
+    font-size: 22px;
+    font-weight: 400;
+}
+
+.skill-group .skills{
+    display: inline-block;
+}
+.skills .skill{
+    display: inline-flex;
+    padding: 8px;
+    background: #343a40;
+    color: #A5A5A5;
+    font-size: x-small;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+.skill-group .skill sup{
+    color: #6cabff;
+}
+
+.main-content-right .right-right{
+    grid-area: right_right;
+}
+.right-right .card{
+    padding: 10px;
+}
+.main-content-bottom .cv{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+    "bottom_left bottom_right";
+    row-gap: 10px;
+    text-align: left;
+    padding: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+.cv .bottom-left{
+    grid-area: bottom_left;
+    text-align: left;
+}
+.bottom-left h2{
+    text-align: left;
+    color: #6cabff;
+}
+.bottom-left .experiences{
+    margin-bottom: 10px;
+}
+.experiences .experience{
+    display: list-item;
+    list-style-type: disc;
+    text-align: left;
+    margin-bottom: 10px;
+    position: relative;
+}
+.experience .title{
+    font-size: 22px;
+    color: #343a40;
+}
+.experience .company{
+    font-size: 18px;
+    color: #A5A5A5;
+}
+.experience .period{
+    color: #a5a5a5;
+    font-size: 14px;
+}
+.experience .duty{
+    display: list-item;
+    list-style-type: circle;
+    list-style-position: inside;
+    font-size: 14px;
+}
+.cv .bottom-right{
+    grid-area: bottom_right;
+    text-align: left;
+}
+.bottom-right h2{
+    text-align: left;
+    color: #6cabff;
+}
+.bottom-right .educations{
+    display: flex;
+    flex-direction: column;
+}
+
+.educations .education{
+    display: grid;
+    grid-template-columns: 0.3fr 1fr;
+}
+
+.education .period{
+    font-size: 18px;
+    color: #0dabe9;
+}
+.education .course{
+    font-size: 22px;
+    color: #343a40;
+}
+.education .school{
+    font-size: 18px;
+    color: #A5A5A5;
+}
+@media only screen and (max-width: 992px){
+    .main-panel .main-header{
+        grid-template-columns: 0.7fr 1fr;
+    }
+    .main-header-right h1{
+        font-size: xx-large;
+        transition: 0.6 all linear;
+    }
+    .main-content{
+        grid-template-columns: 1fr;
+    }
+    
+}
+@media only screen and (max-width: 768px){
+    .main-panel .main-header{
+        grid-template-columns:1fr;
+        grid-template-areas:
+        "about_left"
+        "about_right" ;
+    }
+    .main-content-bottom .cv{
+        grid-template-columns:1fr;
+        grid-template-areas:
+        "bottom_left"
+        "bottom_right" ;
+    }
+
+    .main-header-left h2{
+        display: block;
+    }
+    
+}
+
+@media only screen and (max-width: 568px){
+   .main-content .main-content-right{
+       grid-template-columns: 1fr;
+       grid-template-areas: 
+       "right_left"
+       "right_right";
+   }
+   .main-content-right .cards{
+       grid-template-columns: 0.5fr 0.5fr;
+   }
+}

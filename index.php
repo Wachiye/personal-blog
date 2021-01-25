@@ -1,119 +1,148 @@
-<?php require_once("config.php") ?>
-<?php require_once(  ROOT_PATH . "/includes/header.php") ?>
-<?php include(ROOT_PATH . "/includes/nav.php") ?>
-<div class="content">
-	<div class="bio-brief">
-		<?php echo "<img src='./static/img/me.jpg' width='100%' height='100%' >"; ?>
-	</div>
-	<div class="bio">
-		<p id="quote"></p>
-		<div id="about">
-			<div class="bio-span">About Me</div>
-			<p>My name is Wachiye Jeremiah Siranjofu. I like being called Sirah.</p>
-			<p>I'm a 21 years old schooling at Egerton Univertity, Njoro( Bsc. Computer Science) and Web Developer( Backend) from Kitale, Kenya.</p>
-			<p>I have specialized in backend development in Node Js and PHP.,but I also have Front-End skills in HTML, CSS, JavaScript and Bootstrap 4. I love Node Js because of its asynchronous threading nature.</p>
-			<p>My passion is all about building system that deliver the required functionality and including the interactions you would want to see on your website.</p>
-			<p>Out of curiosity, I have become a self-taught programmer in Visual Studio, PHP and am hoping to learn Java in a few days to come.</p>
-			<p>My skills are not just limited to the above, I am also good at MySQL and MongoDB intergation, business card designing and wireframe prototyping.</p>
-			<p>I love listening to music and watching movies as a way of breaking from coding. Taking a nap is sometimes an option after a very long day.</p>
-			<p>
-				<img src="./static/img/serious.jpg" width="100%" height="auto">
-				<em>This is how I look when am seroius listening to an experienced Programmer. This is how I look when am seriuos on my work. This is how I look when I mean focus. Besides, I have a good sense of humour but only when its time for having fun.</em>
-				</p>
-			<p>If you would like to connect with me, then be sure to find me on the bellow links.</p>
-		</div>
-		<div id="skills">
-			<div class="bio-span">My Skills</div>
-			<div class="category">
-				<div class="span">Tools</div>
-				<ul>
-					<li>Eclipse</li>
-					<li>Netbeans</li>
-					<li>Ms Visual Studio</li>
-					<li>Visual Studio Code</li>
-					<li>Sublime Text</li>
-					<li>Wordpress</li>
-					<li>Git</li>
-					<li>Heroku</li>
-				</ul>
-			</div>
-			<div class="category">
-				<div class="span">Languages</div>
-				<ul>
-					<li>Node Js</li>
-					<li>PHP</li>
-					<li>Visual Basic</li>
-					<li>HTML, CSS, JavaScript</li>
-					<li>Some skills on C, Java, Python</li>
-				</ul>
-			</div>
-			<div class="category">
-				<div class="span">Database Management</div>
-				<ul>
-					<li>SQL Server 2008</li>
-					<li>Microsoft Access</li>
-					<li>MySQL</li>
-					<li>MongoDB</li>
-				</ul>
-			</div>
-			<div class="category">
-				<div class="span"> Other relevant Skills</div>
-				<ul>
-					<li>Communication</li>
-					<li>Teamwork</li>
-					<li>Problem Identification and Problem Solving</li>
-					<li>Self-management</li>
-					<li>Flexibility</li>
-					<li>I am a quick leaner and ready to learn new skills.</li>
-				</ul>
-			</div>
-		</div>
-		<div class="best-pics">
-			<div class="span">Here are some moments</div>
-			
-			<div class="moment">
-				<div class="gallery">
-					<img src="./static/img/dev-fest-2019.jpg" width="600" height="400">
-					<div class="caption">
-						Attending <a href="https://www.meetup.com/gdgeldoret/events/">GDG Eldoret  in 2019 at Rupa's Mall</a>
-					</div>
-				</div>
-			</div>
-			<div class="moment">
-				<div class="gallery">
-					<img src="./static/img/comp-lab.jpg" width="600" height="400">
-					<div class="caption">
-						In the computer lab at Egerton University with my friend Erick
-					</div>
-				</div>
-			</div>	
-			<div class="moment">
-				<div class="gallery">
-					<video width="320" height="240" controls>
-						<source src="./static/img/fun-expd.mp4" type="video/mp4">
-					</video>
-					<div class="caption">
-						Having some fun during our Explorers and Developers Meeting hours.
-					</div>
-				</div>
-			</div>
-			<div class="moment">
-				<div class="gallery">
-					<img src="./static/img/mum-sisters.jpg" width="600" height="400">
-					<div class="caption">
-						Going for a walk with my mum and my sisters.
-					</div>
-				</div>
-			</div>
-			<div class="moment">
-				<div class="gallery">
-					<img src="./static/img/outside-hostel.jpg" width="600" height="400">
-					<div class="caption">
-						Outside one of the hostels at Egerton University with my friend Joram.
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<?php include(ROOT_PATH . "/includes/footer.php") ?>	
+<?php
+    if (! defined('ROOT_PATH')) {
+        define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+    }
+
+    $_GET['limit'] = 4;
+
+    require_once ROOT_PATH . 'functions/get_settings.php';
+    require_once ROOT_PATH . 'functions/get_articles.php';
+    require_once ROOT_PATH . 'functions/get_services.php';
+?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><?php echo $site['site_title'] ?></title>
+    <meta name="description" content="<?php echo $site['site_title'] ?> ">
+    <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/font-awesome.min.css">
+    <link rel="stylesheet" href="./public/css/portfolio.common.css">
+</head>
+
+<body>
+
+    <div class='wrapper'>
+        <?php include_once ROOT_PATH . 'includes/nav.php' ; ?>
+        
+        <div class="main-panel">
+            <div class="main-header">
+                <div class='main-header-left'>
+                    <h1><?php echo $site['site_title'] ?></h1>
+                    <p class="lead"><?php echo $site['site_tag_line'] ?></p>
+                    <div class='action-btns'>
+                        <button class='btn btn-dark action-btn btn-sm'>Samples</button>
+                        <button class='btn action-btn btn-dark first'>Hire Me</button>
+                    </div>
+                </div>
+                <div class="main-header-bottom">
+                    <ul class="list-inline media-list">
+                        <li class="list-inline-item">
+                            <i class="fa fa-envelope"></i>
+                            <a href="mailto:<?php echo $site['site_email'] ?>?Subject=LET'S%20TALK%20BUSINESS"><?php echo $site['site_email'] ?></a>
+                        </li>
+                        <li class="list-inline-item">
+                            <i class="fa fa-phone"></i>
+                            <a href="tel:<?php echo $site['site_phone'] ?>"><?php echo $site['site_phone'] ?></a>
+                        </li>
+                    </ul>
+                </div>
+                <img src="./public/images/me.jpeg" alt="" class="rounded-circle">
+            </div>
+            <div class="main-content">
+                <div class="main-content-left">
+                    <img src="./public/images/me.jpeg" alt="" class="rounded-circle">
+                    <h2>A Gist About Me</h2>
+                    <div><?php echo $site['about_me_text'] ?></div>
+                </div>
+                <div class="main-content-right">
+                    <h2>What I Do</h2>
+                    <div class="cards what-i-do">
+                        <div class='card card1'>
+                            <i class="fa fa-desktop"></i>
+                            <p>Web Design</p>
+                        </div>
+                        <div class='card card2'>
+                            <i class="fa fa-code"></i>
+                            <p>Web Development</p>
+                        </div>
+                        <div class='card card3'>
+                            <i class="fa fa-desktop"></i>
+                            <p>Android Development</p>
+                        </div>
+                        <div class='card card4'>
+                            <i class="fa fa-desktop"></i>
+                            <p>Desktop Applications</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="space-body w-100"></div>
+                <div class='main-content-bottom'>
+                    <h2>My Prices</h2>
+                    <p class="lead">Get it done, at the value of your money</p>
+                    <div class="cards prices">
+                    <?php
+                        while($svc = mysqli_fetch_array($services,MYSQLI_ASSOC)){
+                            echo <<<EOT
+                            <div class="card price-card">
+                                <div class="price-header">
+                                    <h2 class="text-capitalize">{$svc['service_name']}</h2>
+                                    <p >Ksh {$svc['price']} +</p>
+                                </div>
+                                <div class='description'>{$svc['description']}</div>
+                            </div>
+                            EOT;
+                        }
+
+                    ?>
+                    </div>
+                    <div class="hire-me">
+                        <h2>Your are a click away!</h2>
+                        <p class="text-light">Are you looking for website/blog?</p>
+                        <button class="btn action-btn">Get it Here</button>
+                    </div>
+                    <div class="recent-articles">
+                        <h2>Recent Articles</h2>
+                        <div class="cards articles">
+                        <?php
+                            while($post = mysqli_fetch_array($articles,MYSQLI_ASSOC)){
+                                echo <<<EOT
+                                <a href="#" class="card article">
+                                    <h3>{$post['title']}</h3>
+                                </a>
+                                EOT;
+                            }
+
+                        ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main-footer">
+            <h5>Follow Me</h5>
+            <ul class="list-inline media">
+                <li class="list-inline-item media-item">
+                    <a href="#" class='fa fa-facebook'></a>
+                </li>
+                <li class="list-inline-item media-item">
+                    <a href="#" class='fa fa-twitter'></a>
+                </li>
+                <li class="list-inline-item media-item">
+                    <a href="#" class='fa fa-linkedin'></a>
+                </li>
+                <li class="list-inline-item media-item">
+                    <a href="#" class='fa fa-github'></a>
+                </li>
+            </ul>
+            <p class="lead">Copyright &copy; .All rights Reserved</p>
+        </div>
+    </div>
+    <script src="./assets/jquery.min.js"></script>
+    <script src="./assets/popper.js"></script>
+    <script src="./assets/bootstrap/js/bootstrap.bundle.js"></script>
+</body>
+
+</html>

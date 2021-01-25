@@ -1,0 +1,75 @@
+.main-panel .main-content{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto 30px auto;
+    grid-template-areas: 
+        "top top"
+        "left right"
+        "space space"
+        "bottom bottom";
+    gap: 5px;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.main-content .main-content-top{
+    grid-area: top;
+    text-align:center;
+}
+.main-content .main-content-left{
+    grid-area: left;
+    padding-left: 40px;
+    padding-right: 40px;
+    text-align: left;
+}
+.main-content .main-content-right{
+    grid-area: right;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+.main-content-right .contact-list{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    background: #a5a5a5;
+    opacity: 0.6;
+    margin-bottom: 20px;
+}
+.contact-list div{
+    margin-bottom: 1px;
+    min-height: 50px;
+    padding: 20px;
+    background: #ffffff;
+    color: #444;
+}
+.contact-list div.card{
+    min-height: 300px;
+}
+.contact-list div:last-child{
+    margin-bottom: 0;
+}
+.main-content .main-content-bottom{
+    grid-area: bottom;
+}
+
+@media only screen and (max-width: 992px){
+    .main-panel .main-content, .main-content .main-content-left, .main-content .main-content-right{
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+@media only screen and (max-width: 768px){
+    .main-panel .main-content{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto  auto 30px auto;
+    
+        grid-template-areas: 
+        "top"
+        "left"
+        "right"
+        "space"
+        "bottom";
+    }
+}
