@@ -3,9 +3,9 @@
         define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
     }
 
-    require_once __DIR__ . "./DotEnv.php";
+    require_once __DIR__ . "/DotEnv.php";
 
-    (new DotEnv(  __DIR__ . './.env'))->load();
+    (new DotEnv(  __DIR__ . '/.env'))->load();
 
     class DBAccess{
         //details fo accessing mysql database
