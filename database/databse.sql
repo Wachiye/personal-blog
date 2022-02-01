@@ -1,5 +1,3 @@
-CREATE DATABASE IF NOT EXISTS `portfolio`;
-
 -- USERS TABLE
 CREATE TABLE IF NOT EXISTS `portfolio`.`users`(
     `user_id` INT  AUTO_INCREMENT,
@@ -40,14 +38,12 @@ CREATE TABLE IF NOT EXISTS `portfolio`.`articles`(
 
 -- DUMP ARTICLES
 INSERT INTO `portfolio`.`articles`(article_id, user_id, title, subtitle, content, excerpt, category, tags)
-VALUES(1,1,'PHP-Knowing It All','All you need to know about PHP','a php function is a tiny program that will perform a particular task. the include() function takes whatever is
-inside the brackets and pulls it into the page at the place where the include() function is located. php has two similar
+VALUES(1,1,'PHP-Knowing It All','All you need to know about PHP','a php function is a tiny program that will perform a particular task. the include() function takes whatever is inside the brackets and pulls it into the page at the place where the include() function is located. php has two similar
 functions include() and require(). they both pull a file into a page so that the file is included in the displayed page. the
 difference is in the way they react to a missing or faulty file. If the file to be included is missing or corrupt, include() will
 not halt the execution of a page.', 'the include() function takes whatever is
-inside the brackets and pulls it into the page at the place where the include() function is located','programming','php,include,learn, function','code.jpeg'),
-(2,1,'Datebase Design','database design and a practical way of testing it','Databases can be used to store products, details of customers, records of members of a society or a club, and much
-more. They can store names, passwords, addresses, e-mail addresses, registration dates, blog entries, and telephone
+inside the brackets and pulls it into the page at the place where the include() function is located','programming','php,include,learn, function'),
+(2,1,'Datebase Design','database design and a practical way of testing it','Databases can be used to store products, details of customers, records of members of a society or a club, and much more. They can store names, passwords, addresses, e-mail addresses, registration dates, blog entries, and telephone
 numbers. Databases can be regarded as folders containing tables of data. The table of data, like all tables, has columns
 and rows; however, the rows in database tables are called records.', 'The table of data, like all tables, has columns
 and rows; however, the rows in database tables are called records','programming','mysql,database,design, testing');
@@ -73,7 +69,7 @@ CREATE TABLE IF NOT EXISTS `portfolio`.`messages`(
 INSERT INTO `portfolio`.`messages`(message_id, from_name, from_email, message, status)
 VALUES(1, 'Wachiye Siranjofu 3','wachiye3@gmail.com','i would like to be an author on your site. where do i start?',0),
 (2, 'Wachiye Siranjofu','wachiye1@gmail.com','i am having trouble login in to  my account. my username is wachiye1 .please help me.',0),
-(3, 'Alex McKings','alex@alexdes.com''Hey, I love the contents on your site. Its amazing. i am a professional designer and i would like to join your team to help in creating better designs. Am available at any time. Waiting to here from you',0),
+(3, 'Alex McKings','alex@alexdes.com','Hey, I love the contents on your site. Its amazing. i am a professional designer and i would like to join your team to help in creating better designs. Am available at any time. Waiting to here from you',0),
 (4, 'Web Tester','xx@gmail.com','testing this message. testing this message',1);
 
 -- SAMPLES TABLE
@@ -94,7 +90,7 @@ VALUES(1, 'Library System In PHP','Building a libary system in php','https://www
 (3, 'Student Management System In PHP','Building a student management system in php','https://www.github.com/Wachiye/personal-blog'),
 (4, 'Library System In PHP','Building a libary system in php','https://www.github.com/Wachiye/personal-blog');
 
---SETTINGS TABLE
+-- SETTINGS TABLE
 CREATE TABLE IF NOT EXISTS `portfolio`.`settings`(
     `setting_key` VARCHAR(255) NOT NULL UNIQUE,
     `value` TEXT NOT NULL,
