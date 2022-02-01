@@ -62,7 +62,7 @@
                 </div>
                 <div class="card-body">
                     <form method="POST" target="_self">
-                        <input type="hidden" name="action" value="pwd" />
+                        <input type="hidden" name="action" value="add-user" />
                         <input type="hidden" name="user" value="<?php echo $user['user_id'] ?? '' ?>" />
                         <input type="hidden" name="username" value="<?php echo $user['username'] ?? '' ?>" />
                         <div class="form-group">
