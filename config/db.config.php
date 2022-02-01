@@ -5,7 +5,7 @@
 
     require_once __DIR__ . "/DotEnv.php";
 
-    (new DotEnv(  ROOT_PATH . '../.env'))->load();
+    (new DotEnv(  ROOT_PATH . './.env'))->load();
 
     class DBAccess{
         //details fo accessing mysql database
