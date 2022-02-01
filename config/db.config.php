@@ -1,15 +1,26 @@
 <?php
-    
+    if (! defined('ROOT_PATH')) {
+        define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+    }
+
+    require_once ROOT_PATH . "utils/DotEnv.php";
+
+    (new DotEnv( ROOT_PATH . '.env'))->load();
+
     class DBAccess{
         //details fo accessing mysql database
-        protected $db_name = 'portfolio';
-        protected $db_user = 'root';
-        protected $db_password = '4Sirah@123';
-        protected $db_host = 'localhost';
+        protected $db_name;
+        protected $db_user;
+        protected $db_password;
+        protected $db_host;
 
         var $db;
 
         function __construct(){
+            $this->db_host = $_ENV['DB_HOST'];
+            $this->db_name = $_ENV['DB_NAME'];
+            $this->db_user = $_ENV['DB_USERNAME'];
+            $this->db_password = $_ENV['DB_PASSWORD'];
             $this->connect();
             return $this->db;
         }
