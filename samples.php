@@ -7,9 +7,8 @@
     require_once ROOT_PATH . 'functions/subscribe.php';
     require_once ROOT_PATH . 'functions/get_samples.php';
 ?>
-<?php include_once ROOT_PATH . 'includes/header.php' ?>
-<link rel="stylesheet" href="./public/css/portfolio.samples.css">   
-
+<?php include_once ROOT_PATH . 'includes/header.php' ?>  
+<link rel="stylesheet" href="./public/css/portfolio.samples.css">     
 <div class="main-panel samples-panel" id="samples-panel">
     <!-- <div class="main-header">
         <h1>Sample Personal Projects</h1>
@@ -19,27 +18,28 @@
         <div class="main-content-top">
             <h2>Sample Projects</h2>
             <p class="lead">The Road to Performance Is Littered with Dirty Code Bombs</p>
+            <?php require_once ROOT_PATH . 'includes/message.php' ?>
         </div>
         <div class="main-content-left">
-            <div class="row">
-                <div class="col-12">
-                    <div class="card bg-transparent border-0">
-                        <div class="card-body">
-                            <ul class="list-group list-group-flush">
-                                 <?php
-                                    while($sample = mysqli_fetch_array($samples, MYSQLI_ASSOC)){
-                                        echo <<<EOT
-                                            <li class="list-group-item text-left">
-                                                <h5>{$sample['title']}</h5>
-                                                <p class="card-text text-left">{$sample['content']}</p>
-                                                <a class="card-link" href="{$sample['github_url']}" target="_blank">
-                                                    <i class="fa fa-github-square"> View on Github</i>
-                                                </a>
-                                            </li>
-                                        EOT;
-                                    }
-                                 ?>
-                            </ul>
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card bg-transparent border-0">
+                            <div class="card-body">
+                                <ul class="list-group list-group-flush">
+                                    <?php
+                                        while($sample = mysqli_fetch_array($samples, MYSQLI_ASSOC)){
+                                            echo <<<EOT
+                                                <li class="list-group-item text-left">
+                                                    <a class="card-link" href="./sample.php?view={$sample['slag']}" target="_blank">
+                                                        <h5 class="text-primary">{$sample['title']}</h5>
+                                                    </a>
+                                                </li>
+                                            EOT;
+                                        }
+                                    ?>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>

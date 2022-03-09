@@ -5,19 +5,19 @@
     require_once ROOT_PATH . '../config/db.config.php';
     $db = new DBAccess();
     
-    $sql = 'SELECT * FROM samples';
+    $sql = 'SELECT * FROM hire_me';
 
     if(isset($_GET['id'])){
         $id = $db->sanitize($_GET['id']);
-        $sql .= ' WHERE sample_id =' . $id; 
+        $sql .= ' WHERE hire_id =' . $id; 
     }
     
     $sql .= " ORDER BY created_at DESC";
 
-    $samples = $db->query($sql);
+    $hire_me = $db->query($sql);
 
-    if($samples){
-        return $samples;
+    if($hire_me){
+        return $hire_me;
     }
     else{
         return mysqli_error($db->db);

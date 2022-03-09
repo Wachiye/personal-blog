@@ -1,3 +1,5 @@
+CREATE DATABASE IF NOT EXISTS `portfolio`;
+
 -- USERS TABLE
 CREATE TABLE IF NOT EXISTS `portfolio`.`users`(
     `user_id` INT  AUTO_INCREMENT,
@@ -23,6 +25,7 @@ CREATE TABLE IF NOT EXISTS `portfolio`.`articles`(
     `user_id` INT NOT NULL,
     `title` VARCHAR(255) NOT NULL,
     `subtitle` VARCHAR(255),
+    `slag` VARCHAR(255) UNIQUE,
     `content` TEXT NOT NULL,
     `excerpt` TEXT ,
     `category` VARCHAR(64) NOT NULL DEFAULT 'uncategorized',
@@ -72,10 +75,26 @@ VALUES(1, 'Wachiye Siranjofu 3','wachiye3@gmail.com','i would like to be an auth
 (3, 'Alex McKings','alex@alexdes.com','Hey, I love the contents on your site. Its amazing. i am a professional designer and i would like to join your team to help in creating better designs. Am available at any time. Waiting to here from you',0),
 (4, 'Web Tester','xx@gmail.com','testing this message. testing this message',1);
 
+-- HIRE ME table
+CREATE TABLE IF NOT EXISTS `portfolio`.`hire_me`(
+    `hire_id` INT AUTO_INCREMENT,
+    `from_name` VARCHAR(255) NOT NULL,
+    `from_email` VARCHAR(100) NOT NULL,
+    `project` VARCHAR(30) NOT NUll DEFAULT 'Website Development',
+    `description` TEXT NOT NULL,
+    `budget` DOUBLE(18,2) DEFAULT 0.00,
+    `attachment` TEXT,
+    `status` INT DEFAULT 0,
+    `created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `updated_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY(hire_id)
+);
+
 -- SAMPLES TABLE
 CREATE TABLE IF NOT EXISTS `portfolio`.`samples`(
     `sample_id` INT AUTO_INCREMENT,
     `title` VARCHAR(255) NOT NULL,
+    `slag` VARCHAR(255)  UNIQUE,
     `content` TEXT NOT NULL,
     `github_url` varchar(255) NOT NULL,
     `created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -145,3 +164,54 @@ VALUES('home_page',108),
 ('samples_page',106),
 ('articles_page',70),
 ('contact_page',67);
+
+
+-- EXPERIENCES TABLES
+CREATE TABLE IF NOT EXISTS `portfolio`.`experiences`(
+    `experience_id` INT AUTO_INCREMENT,
+    `title` VARCHAR(255) NOT NULL UNIQUE,
+    `company` TEXT NOT NULL,
+    `start_year` INT,
+    `end_year` int ,
+    `tasks` TEXT,
+    PRIMARY KEY(experience_id)   
+);
+
+-- DUMP EXPERINCES
+INSERT INTO `portfolio`.`experiences`(experience_id, title, company, start_year, end_year, tasks)
+VALUES (1, 'Software Project Manager','Real Teachnologies LTD', 2016, 2018 , 'Project Planning, Project Management'),
+        (2, 'Senior Frontend Developer','Real Teachnologies LTD', 2015, 2016 , 'Team Leading, Requirements Analysis, Framework Selection');
+
+-- EDUCTAION TABLES
+CREATE TABLE IF NOT EXISTS `portfolio`.`education`(
+    `education_id` INT AUTO_INCREMENT,
+    `course` VARCHAR(255) NOT NULL UNIQUE,
+    `institution` TEXT NOT NULL,
+    `location` VARCHAR(255),
+    `start_year` INT,
+    `end_year` int ,
+    `grade` TEXT,
+    PRIMARY KEY(education_id)   
+);
+
+-- DUMP EXPERINCES
+INSERT INTO `portfolio`.`education`(education_id, course, institution, location, start_year, end_year, grade)
+VALUES (1, 'Bsc. Computer Science','Egerton University','Njoro, Nakuru', 2017, null, 'In Final Year'),
+    (2, 'Secondary School Education (KCSE)','Arch Bishop Anyolo Secondary School','Tongaren, Bungoma', 2013, 2014 , 'AGP 74 (A-)'),
+    (3, 'Primary School Education (KCPE)','Baraton Primary School','Baraton, Kitale', 2015, 2016 , '297/500 Marks');
+
+-- SKILLS TABLE
+CREATE TABLE IF NOT EXISTS `portfolio`.`skills`(
+    `skill_id` INT AUTO_INCREMENT,
+    `category` VARCHAR(255) NOT NULL UNIQUE,
+    `skills` TEXT NOT NULL,
+    PRIMARY KEY(skill_id)   
+);
+
+-- DUMP SKILLS
+INSERT INTO `portfolio`.`skills`(skill_id, category, skills)
+VALUES (1, 'Languages','PHP, NodeJs, Java, C, C++, Python, Visual Basic, C#'),
+    (2, 'Programming Tools','Git, Heroku, Vs Code, IntelliJ, Sublime Text, Visual Studio, Eclipse, Android Studio'),
+    (3, 'Databases','MySQL, Oracle, MongoDB, Microsoft Access'),
+    (4, 'Protyping/Design Tools','JustInMind, Figma, Adobe Photoshop, InVision'),
+    (5, 'Web Development','Rest APIs, MEAN, MERN, PHP+Laravel, Spring Boot, ReactJ, Bootstrap');

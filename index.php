@@ -15,11 +15,12 @@
             <h1><?php echo $site['site_title'] ?></h1>
             <p class="lead"><?php echo $site['site_tag_line'] ?></p>
             <div class='action-btns'>
-                <button class='btn btn-dark action-btn btn-sm'>Samples</button>
-                <button class='btn action-btn btn-dark first'>Hire Me</button>
+                <a class='btn btn-dark action-btn btn-sm' href="./samples.php">Samples</a>
+                <a class='btn btn-dark action-btn first btn-sm' href="./hire-me.php">Hire Me</a>
             </div>
         </div>
         <div class="main-header-bottom">
+        <?php require_once ROOT_PATH . 'includes/message.php' ?>
             <ul class="list-inline media-list">
                 <li class="list-inline-item">
                     <i class="fa fa-envelope"></i>
@@ -68,7 +69,7 @@
             <?php
                 while($svc = mysqli_fetch_array($services,MYSQLI_ASSOC)){
                     echo <<<EOT
-                    <div class="card price-card">
+                    <div class="card shadow-none price-card">
                         <div class="price-header">
                             <h2 class="text-capitalize">{$svc['service_name']}</h2>
                             <p >Ksh {$svc['price']} +</p>

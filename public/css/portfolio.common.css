@@ -275,12 +275,15 @@ a.action-link:hover{
     background: #ffffff;
     padding-top:0 !important;
     border-radius: 0;
+    display:grid;
+    grid-template-columns:1fr;
+    grid-template-rows:0.4fr 1fr;
+    gap:5px;
 }
 .price-card .price-header{
     padding-top: 20px;
     padding-bottom: 20px;
     width: 100%;
-    margin-top: -8px;
     background: #6cadf1;
     color: #ffffff;
 }
@@ -295,6 +298,9 @@ a.action-link:hover{
     font-size: 18px;
     font-weight: 300;
 }
+.price-card .description{
+    padding:10px;
+}
 .main-content .space-body{
     grid-area: space;
     background: #6cadf1;
@@ -308,6 +314,8 @@ a.action-link:hover{
     width: 100%;
     background-size: cover;
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../images/web.jpeg) no-repeat center;
+}
+.hire-me .title{
     color: #deee07;
 }
 .main-content-bottom .recent-articles{

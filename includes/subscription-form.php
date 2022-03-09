@@ -19,6 +19,7 @@
         }
 
     ?>
+    <input type="hidden"  name="type" value="subscribe"/>
     <div class="form-group">
         <input type="text" class="form-control" id="username" name="username" placeholder="Your Username" />
     </div>

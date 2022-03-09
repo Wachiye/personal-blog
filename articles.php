@@ -11,22 +11,6 @@
 <link rel="stylesheet" href="./public/css/portfolio.articles.css">
 
 <div class="main-panel" id="articles-panel">
-    <div class="main-header">
-       <div class="main-header-search">
-           <form action="#" class="search-form">
-                <div class="form-group-search">
-                    <input class="form-control form-control-sm" type="text" id="search" name="search" placeholder="Search for keywords here" />
-                </div>
-            </form>
-       </div>
-       <div class="main-header-cta">
-           <div class="btn-group">
-               <button class="btn btn-primary action-btn  first btn-sm">Be an Author</button>
-               <button class="btn btn-dark action-btn  btn-sm">Suggest Topic</button>
-               <button class="btn btn-secondary action-btn btn-sm">Get a Blog</button>
-           </div>
-       </div>
-    </div>
     <div class="main-content">
         <div class="main-content-left">
             <h2>My Articles</h2>
@@ -35,6 +19,7 @@
                     <div class="col-12">
                         <div class="card bg-transparent border-0">
                             <div class="card-body">
+                            <?php require_once ROOT_PATH . 'includes/message.php' ?>
                                 <ul class="list-group list-group-flush text-left">
                                     <?php
                                         while($post = mysqli_fetch_array($articles,MYSQLI_ASSOC)){
@@ -43,7 +28,7 @@
                                                 <h5 class="card-title">{$post['title']}</h5>
                                                 <h6 class="card-subtitle">{$post['subtitle']}</h6>
                                                 <p class="lead excerpt text-left">{$post['excerpt']}</p>
-                                                <a href="./article.php?view={$post['article_id']}" class="card-link btn btn-outline-info">Read Now</a>
+                                                <a href="./article.php?view={$post['slag']}" class="card-link btn btn-outline-info">Read Now</a>
                                             </li>
                                             EOT;
                                         }

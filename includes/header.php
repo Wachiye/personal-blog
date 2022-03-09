@@ -13,6 +13,7 @@
     <meta name="description" content="<?php echo $site['description'] ?> ">
     <link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="./assets/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./assets/summernote/summernote.min.css">
     <link rel="stylesheet" href="./public/css/portfolio.common.css">
     <link rel="shortcut icon" href="./public/favicon.ico" type="image/x-icon">
     <title><?php echo $site['site_title'] ?></title>

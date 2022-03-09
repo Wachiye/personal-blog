@@ -3,7 +3,7 @@
         define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
     }
     
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['type'] == 'contact') {
        
         require_once ROOT_PATH . 'config/db.config.php';
         $db = new DBAccess();
@@ -15,9 +15,7 @@
         if(empty($_POST['email'])){
            return $message_error = "Error: Please provide your email address for easy communication";
         }
-        if(empty($_POST['email'])){
-            return $message_error = "Error: Please provide your email address for easy communication";
-        }
+        
         if(empty($_POST['message'])){
             return $message_error = "Error: Your message is empty";
         }

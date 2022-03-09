@@ -4,19 +4,13 @@
 }
 require_once ROOT_PATH . '../config/db.config.php';
 $db = new DBAccess();
-$query = 'SELECT * FROM users';
-
-if(isset($_GET['id'])){
-    $id = $db->sanitize($_GET['id']);
-    $query .= ' WHERE user_id =' . $id; 
-}
-
+$query = 'SELECT * FROM users WHERE DateDiff("d", created_at, Date()) < 7';
 $query .= " ORDER BY created_at DESC";
 
-$users = $db->query($query);
+$recent_users = $db->query($query);
 
-if($users)
-    return $users;
+if($recent_users)
+    return $recent_users;
 else{
     return mysqli_error($db->db);
 }

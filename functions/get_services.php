@@ -14,7 +14,7 @@
         return $services;
     }
     else{
-        return mysqli_error();
+        return mysqli_error($db->db);
     }
 
 ?>

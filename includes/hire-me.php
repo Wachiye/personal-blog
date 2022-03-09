@@ -1,5 +1,8 @@
 <div class="hire-me">
-    <h2>Your are a click away!</h2>
+    <h2 class="title">Your are a click away!</h2>
     <p class="text-light">Are you looking for website/blog?</p>
-    <button class="btn action-btn">Get it Here</button>
+    <div class='action-btns'>
+        <a class='btn btn-dark action-btn btn-sm' href="./samples.php">Samples</a>
+        <a class='btn btn-dark action-btn first btn-sm' href="./hire-me.php">Get It Here</a>
+    </div>
 </div>

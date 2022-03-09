@@ -11,7 +11,9 @@
     $page_id = 'Settings';
     
     include_once ROOT_PATH . 'functions/create-settings.php';
-    include_once ROOT_PATH . 'functions/get-settings.php'; 
+    include_once ROOT_PATH . 'functions/get-settings.php';
+    include_once ROOT_PATH . 'functions/get-experiences.php';  
+    include_once ROOT_PATH . 'functions/get-education.php';
 
     include_once ROOT_PATH . 'includes/admin-header.php';
     include_once ROOT_PATH . 'includes/admin-nav.php';
@@ -20,8 +22,8 @@
 
 <div class="main">
     <main class="main-content">
-        <div class="container-fluid ">
-            <div class="card shadow-none">
+        <div class="container">
+            <div class="card shadow-none mb-1">
                 <div class="card-body">
                     <?php
                         if(!empty($message_error)){
@@ -42,6 +44,7 @@
                         }
                     ?>
                     <form method="POST" target="_self">
+                        <input type="hidden" name="site">
                         <div class="form-row">
                             <div class="col-md-6 mb-1">
                                 <h5>Basic Details</h5>
@@ -59,9 +62,17 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="description">Site Description</label>
-                                    <textarea name="description" id="description" class="form-control" maxlength="140"><?php echo $site['description'] ?? '' ?></textarea>
+                                    <textarea name="description" id="description" class="form-control" maxlength="140" rows="2"><?php echo $site['description'] ?? '' ?></textarea>
                                     <span class="form-text text-info font-italic">Character limit:140</span>
                                 </div>
+                                <div class="form-group">
+                                    <label for="about_me_text">About Me Text</label>
+                                    <textarea name="about_me_text" id="about_me_text" class="summernote form-control">
+                                    <?php echo $site['about_me_text'] ?? '' ?></textarea>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-1">
+                                <h5>Contacts & Social Accounts</h5>
                                 <div class="form-group">
                                     <label for="site_email">Email</label>
                                     <input type="email" name="site_email" id="site_email" class="form-control"
@@ -74,15 +85,6 @@
                                         placeholder="Phone"
                                         value="<?php echo $site['site_phone'] ?? '' ?>">
                                 </div>
-                                <div class="form-group">
-                                    <label for="about_me_text">About Me</label>
-                                    <textarea name="about_me_text" id="about_me_text" class="summernote form-control">
-                                    <?php echo $site['about_me_text'] ?? '' ?></textarea>
-                                </div>
-                            </div>
-                            
-                            <div class="col-md-6 mb-1">
-                                <h5>Social Accounts</h5>
                                 <div class="form-group">
                                     <label for="facebook_url">Facebook</label>
                                     <input type="url" name="facebook_url" id="facebook_url" class="form-control"
@@ -108,8 +110,11 @@
                                         value="<?php echo $site['github_url'] ?? 'https://www.github.com/' ?>">
                                 </div>
                             </div>
+                            <div class="col-12 text-center">
+                                <button type="submit" class="btn btn-sm btn-dark w-50 mx-auto">Save Changes</button>
+                            </div>
                         </div>
-                        <button type="submit" class="btn btn-sm btn-dark w-50 mx-auto">Save Changes</button>
+                        
                     </form>
                 </div>
             </div>

@@ -6,12 +6,12 @@
     require_once ROOT_PATH . '../config/db.config.php';
 
     $db = new DBAccess();
-    $sql = "SELECT * FROM services";
+    $query = "SELECT page_name, views from page_views;";
 
-    $services = $db->query($sql);
+    $page_views = $db->query($query);
 
-    if($services){
-        return $services;
+    if($page_views){
+        return $page_views;
     }
     else{
         return mysqli_error($db->db);

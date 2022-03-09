@@ -3,7 +3,7 @@
         define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
     }
     
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['type'] == 'subscribe') {
        
         require_once ROOT_PATH . 'config/db.config.php';
         $db = new DBAccess();

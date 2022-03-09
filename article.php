@@ -22,6 +22,7 @@ if ($article) {
     </div>
     <div class="main-content">
         <div class="main-content-left">
+        <?php require_once ROOT_PATH . 'includes/message.php' ?>
             <div class="article">
                 <h2 class="title text-left text-uppercase"><?php echo $article['title']; ?></h2>
                 <h3 class="subtitle"><?php echo $article['subtitle'] ?? '' ?></h3>
@@ -60,7 +61,7 @@ if ($article) {
                     while ($post = mysqli_fetch_array($articles, MYSQLI_ASSOC)) {
                         if ($post['article_id'] != $article['article_id']){
                             echo <<<EOT
-                                <a href="#" class="card article">
+                                <a href="?view={$post['slag']}" class="card article">
                                     <h3>{$post['title']}</h3>
                                 </a>
                             EOT;

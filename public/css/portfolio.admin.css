@@ -98,6 +98,20 @@ body, html{
     border: 1px solid #a5a5a5;
     cursor: pointer;
 }
+.nav-icon.small{
+    position: absolute;
+    top:0;
+    right: 0;
+    width: 30px ;
+    height: 30px;
+    padding: 4px;
+    background-color: #ffffff;
+    color: rgb(241, 48, 22);
+    cursor: pointer;
+    border: none;
+    font-size: 2rem;
+    font-weight: 700;
+}
 .nav-icon > .line{
     height: 4px;
     background: #a5a5a5;
@@ -172,16 +186,15 @@ body, html{
 }
 .sidenav-menu > h5{
     font-size: 18px;
-    margin-top:10px;
-    margin-bottom:5px;
-    padding: 0 10px;
-    font-weight: 700;
+    margin-bottom:2px;
+    padding: 0 5px;
+    font-weight: 300;
+    color:#a5a5a5;
 }
 .sidenav-menu .menu-item{
-    padding:10px;
+    padding:8px;
     color:#a5a5a5;
     border-radius: 3px;
-    margin-bottom: 5px;
 }
 .menu-item.group{
     padding-left:20px;

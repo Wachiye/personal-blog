@@ -1,13 +1,14 @@
 <?php
     session_start();
+
+    if (! defined('ROOT_PATH')) {
+        define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
+    }
     
     if(!$_SESSION['logged_in']){
         return header('Location:./');
     }
 
-    if (! defined('ROOT_PATH')) {
-        define('ROOT_PATH', __DIR__ . DIRECTORY_SEPARATOR);
-    }
     $page_id = 'Articles';
 
     include_once ROOT_PATH . 'functions/delete-article.php';

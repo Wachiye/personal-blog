@@ -20,40 +20,22 @@
         </div>
         <div class="main-content-left">
             <form method="POST" target="_self">
+                <input type="hidden"  name="type" value="contact"/>
                 <p class="form-text text-left">Please fill this form and I will get back to you as soon as possible</p>
-                <?php
-                    if(!empty($message_error)){
-                        echo <<<EOT
-                            <div class="alert alert-danger alert-dismissible">
-                                <p>$message_error</p>
-                                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                            </div>
-                        EOT;
-                    }
-                    if(!empty($message_reply)){
-                        echo <<<EOT
-                            <div class="alert alert-info alert-dismissible">
-                                <p>$message_reply</p>
-                                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                            </div>
-                        EOT;
-                    }
-
-                ?>
+                <?php require_once ROOT_PATH . 'includes/message.php' ?>
                 <div class="form-group">
                     <label for="full_name">Full Name</label>
                     <input type="text" name="full_name" id="full_name" class="form-control"
-                        placeholder="Full Name">
+                        placeholder="Full Name" value="<?php echo $_POST['full_name'] ?? '' ?>">
                 </div>
                 <div class="form-group">
                     <label for="email">Email</label>
                     <input type="email" name="email" id="email" class="form-control"
-                        placeholder="Email">
+                        placeholder="Email" value="<?php echo $_POST['email'] ?? '' ?>">
                 </div>
                 <div class="form-group">
                     <label for="message">Message</label>
-                    <textarea name="message" id="message" rows="10" class="form-control"
-                    placeholder="Your Message ..."></textarea>
+                    <textarea name="message" id="message" rows="10" class="summernote form-control" placeholder="Your Message ..."><?php echo $_POST['message'] ?? ''; ?></textarea>
                 </div>
                 <button type="submit" class="btn btn-sm btn-dark">Send Message</button>
             </form>
@@ -62,7 +44,10 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">Got a project? Need help?</h4>
-                    <p class="text">Please contact me directly via email/phone</p>
+                    <p class="text">
+                        Please contact me directly via email/phone 
+                        Or <a class='btn action-btn btn-dark first' href="./hire-me.php">Fill Form</a>
+                    </p>
                 </div>
             </div>
             <div class="contact-list">

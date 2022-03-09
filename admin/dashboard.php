@@ -10,7 +10,7 @@ if (!defined('ROOT_PATH')) {
 $page_id = 'Dashboard';
 
 
-//require_once ROOT_PATH . 'functions/get_dashboard_data.php';
+require_once ROOT_PATH . 'functions/dashboard-data.php';
 include ROOT_PATH . 'includes/admin-header.php';
 include_once ROOT_PATH . 'includes/admin-nav.php';
 
@@ -31,7 +31,7 @@ include_once ROOT_PATH . 'includes/admin-nav.php';
                         <p>Users</p>
                     </div>
                     <div class="text">
-                        <p>10</p>
+                        <p><?php echo count($data["users"]) ?></p>
                         <?php echo $userType=='admin' ? '<a href="./users.php">View >></a>' : '' ; ?>
                     </div>
                 </div>
@@ -41,7 +41,7 @@ include_once ROOT_PATH . 'includes/admin-nav.php';
                         <p>Subscribers</p>
                     </div>
                     <div class="text">
-                        <p>5</p>
+                        <p><?php  echo count($data['subscribers']) ?></p>
                     </div>
                 </div>
                 <div class="card update">
@@ -50,7 +50,7 @@ include_once ROOT_PATH . 'includes/admin-nav.php';
                         <p>Messages</p>
                     </div>
                     <div class="text">
-                        <p>12</p>
+                        <p><?php  echo count($data['unread_messages']) ?></p>
                         <a href="./messages.php">View >></a>
                     </div>
                 </div>
@@ -60,7 +60,7 @@ include_once ROOT_PATH . 'includes/admin-nav.php';
                         <p>Articles</p>
                     </div>
                     <div class="text">
-                        <p>3</p>
+                        <p><?php  echo count($data['articles']) ?></p>
                         <a href="./articles.php">View >></a>
                     </div>
                 </div>
@@ -75,7 +75,24 @@ include_once ROOT_PATH . 'includes/admin-nav.php';
                     </div>
                 </div>
                 <div class="card-body">
-                    <canvas id="page-view-stats"></canvas>
+                    <!-- <canvas id="page-view-stats"></canvas> -->
+                    <div class="page-views d-flex flex-row justify-content-between">
+                        <?php
+                            if( count($data['page_views']) > 0){
+                                foreach ($data['page_views'] as $page) {
+                                    echo <<<EOT
+                                    <div class="bg-light" style="height:300px; width:30px;display:inline-flex; position:relative">
+                                        <div class="text-capitalize px-2 bg-primary" style="width:30px; height:{$page['views']}%; position:absolute; left: 0; bottom:0; transform: rotate(180deg);">
+                                            
+                                        </div>
+                                        {$page['page_name']} {$page['views']}%
+                                    </div>
+                                    EOT;
+                                }
+                            }
+                        ?>
+                        
+                    </div>
                 </div>
             </div>
             <div class="card stats-card">
@@ -84,11 +101,11 @@ include_once ROOT_PATH . 'includes/admin-nav.php';
                 </div>
                 <div class="card-body">
                     <div class="stat-list">
-                        <div class="stat">Users<span>45</span></div>
-                        <div class="stat">Subscribers<span>20</span></div>
-                        <div class="stat">Articles<span>45</span></div>
-                        <div class="stat">Messages<span>20</span></div>
-                        <div class="stat">Your Articles<span>5</span></div>
+                        <div class="stat">Users<span><?php  echo count($data['users']) ?></span></div>
+                        <div class="stat">Subscribers<span><?php  echo count($data['subscribers']) ?></span></div>
+                        <div class="stat">All Articles<span><?php  echo count($data['articles']) ?></span></div>
+                        <div class="stat">All Messages<span><?php  echo count($data['messages']) ?></span></div>
+                        <div class="stat">Page Views<span>~<?php echo $total_views ?></span></div>
                     </div>
                 </div>
 
@@ -104,44 +121,28 @@ include_once ROOT_PATH . 'includes/admin-nav.php';
                             <div class="name">Full Name Here</div>
                             <div class="username">Username</div>
                             <div class="email">Email</div>
-                            <div class="action">Actions</div>
+                            <div class="action">User Type</div>
                         </li>
-                        <li class="user list-item">
-                            <div class="number">1</div>
-                            <div class="name">Wachiye XYZ</div>
-                            <div class="username">wachiye1</div>
-                            <div class="email">wachiye@example.com</div>
-                            <div class="action">
-                                <div class="action-list">
-                                    <button class="btn btn-light text-primary action-btn">
-                                        <i class="fa fa-edit"></i>
-                                    </button>
-                                    <button class="btn btn-light text-danger action-btn">
-                                        <i class="fa fa-trash"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="user list-item">
-                            <div class="number">1</div>
-                            <div class="name">Wachiye XYZ</div>
-                            <div class="username">wachiye1</div>
-                            <div class="email">wachiye@example.com</div>
-                            <div class="action">
-                                <div class="action-list">
-                                    <button class="btn btn-light text-primary action-btn">
-                                        <i class="fa fa-edit"></i>
-                                    </button>
-                                    <button class="btn btn-light text-danger action-btn">
-                                        <i class="fa fa-trash"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </li>
+                        <?php
+                            if(count($data['recent_users']) > 0){
+                                foreach($data['recent_users'] as $user){
+                                    $name = $user['full_name'] ?? 'Anonymous';
+                                    echo <<<EOT
+                                    <li class="user list-item">
+                                        <div class="number">{$user['user_id']}</div>
+                                        <div class="name">{$name}</div>
+                                        <div class="username">{$user['username']}</div>
+                                        <div class="email">{$user['email']}</div>
+                                        <div class="type">{$user['type']}</div>
+                                    </li>
+                                    EOT;
+                                }
+                            }
+                        ?>
                         <li class="use list-item user-list-btn">
-                            <button class="btn btn-light text-dark action-btn">
+                            <a class="btn btn-light text-dark action-btn" href="./users.php">
                                 <i class="fa fa-plus"></i>
-                            </button>
+                            </a>
                         </li>
                     </ul>
                 </div>
@@ -157,26 +158,22 @@ include_once ROOT_PATH . 'includes/admin-nav.php';
                             <div class="username">Username</div>
                             <div class="email">Email</div>
                         </li>
-                        <li class="subscriber list-item">
-                            <div class="username">Wachiye</div>
-                            <div class="email">siranjofuw@gmail.com</div>
-                        </li>
-                        <li class="subscriber list-item">
-                            <div class="username">Wachiye</div>
-                            <div class="email">siranjofuw@gmail.com</div>
-                        </li>
-                        <li class="subscriber list-item">
-                            <div class="username">Wachiye</div>
-                            <div class="email">siranjofuw@gmail.com</div>
-                        </li>
-                        <li class="subscriber list-item">
-                            <div class="username">Wachiye</div>
-                            <div class="email">siranjofuw@gmail.com</div>
-                        </li>
-                        <li class="subscriber list-item">
-                            <button class="btn btn-light text-dark action-btn">
+                        <?php
+                            if(count($data['recent_subscribers']) > 0){
+                                foreach($data['recent_subcribers'] as $user){
+                                    echo <<<EOT
+                                    <li class="subscriber list-item">
+                                        <div class="username">{$user['username']}</div>
+                                        <div class="email">{$user['email']}</div>
+                                    </li>
+                                    EOT;
+                                }
+                            }
+                        ?>
+                         <li class="use list-item user-list-btn">
+                            <a class="btn btn-light text-dark action-btn" href="./users.php">
                                 <i class="fa fa-plus"></i>
-                            </button>
+                            </a>
                         </li>
                     </ul>
 
