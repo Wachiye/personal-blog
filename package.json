@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "ts-node-dev --respawn --pretty --transpile-only src/server.ts",
-    "build": "rimraf ./build && tsc",
-    "start": "npm run build && node build/index.js"
+    "start": "node build/server.js",
+    "build": "rm -rf build/ && tsc"
   },
   "keywords": [],
   "author": "",
