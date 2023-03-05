@@ -1,0 +1,2642 @@
+@charset "utf-8";
+
+/*	Copyright (c) 2023 Siranjofu
+/*	Author: Siranjofu
+/*	This file is made for CURRENT TEMPLATE
+
+
+01)	SIRA BASE
+02) SIRA MOBILE MENU
+03) SIRA HEADER
+04) SIRA HERO
+05) SIRA PARTNERS
+06) SIRA FEATURES
+07) SIRA SKILLS
+08) SIRA COUNTER
+09) SIRA ABOUT
+10) SIRA TESTIMONIALS
+11) SIRA PORTFOLIO
+12) SIRA FAQ
+13) SIRA FREELANCE
+14) SIRA NEWS
+15) SIRA CONTACT
+16) SIRA MAGIC CURSOR
+17) SIRA MEDIA QUERIES (FOR SMALL DEVIVES)
+
+
+/*---------------------------------------------------*/
+/*	01) SIRA BASE
+/*---------------------------------------------------*/
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+}
+:root {
+  --main-color: #505a7e;
+  --font-family-inter: "Inter", sans-serif;
+  --font-family-grotesk: "Space Grotesk", sans-serif;
+  --font-family-calistoga: "Calistoga", cursive;
+}
+html {
+  overflow-x: hidden;
+  padding: 0px;
+  margin: 0px;
+}
+body {
+  overflow-x: hidden;
+  width: 100%;
+  font-family: var(--font-family-inter);
+  font-size: 18px;
+  line-height: 32px;
+  letter-spacing: 0px;
+  word-wrap: break-word;
+  font-weight: 400;
+  background-color: #fff;
+  color: var(--main-color);
+}
+
+svg {
+  fill: currentcolor;
+  width: 15px;
+  height: 15px;
+}
+img.svg {
+  width: 15px;
+  height: 15px;
+}
+
+body::-webkit-scrollbar {
+  width: 11px;
+}
+body {
+  scrollbar-width: thin;
+  scrollbar-color: #999 #fff;
+}
+body:-webkit-scrollbar-track {
+  background: #fff;
+}
+body::-webkit-scrollbar-thumb {
+  background-color: #999;
+  border-radius: 6px;
+  border: 3px solid #fff;
+}
+
+::-webkit-input-placeholder {
+  /* WebKit, Blink, Edge */
+  color: #24315e;
+}
+:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: #24315e;
+  opacity: 1;
+}
+::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: #24315e;
+  opacity: 1;
+}
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #24315e;
+}
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #24315e;
+}
+
+::placeholder {
+  /* Most modern browsers support this now. */
+  color: #24315e;
+}
+
+.container {
+  max-width: 1250px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  height: auto;
+  padding: 0px 40px;
+  position: relative;
+  clear: both;
+}
+.container.wide {
+  max-width: 1480px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  line-height: 1.2;
+  font-family: var(--font-family-grotesk);
+  color: #24315e;
+}
+
+h1 {
+  font-size: 45px;
+}
+h2 {
+  font-size: 36px;
+}
+h3 {
+  font-size: 30px;
+}
+h4 {
+  font-size: 24px;
+}
+h5 {
+  font-size: 20px;
+}
+h6 {
+  font-size: 16px;
+}
+
+.sirah_tm_all_wrap {
+  width: 100%;
+  height: auto;
+  clear: both;
+  float: left;
+  position: relative;
+}
+.sirah_tm_all_wrap,
+.sirah_tm_all_wrap * {
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box; /* Firefox, other Gecko */
+  box-sizing: border-box; /* Opera/IE 8+ */
+}
+
+#preloader {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  z-index: 99999;
+  display: flex;
+}
+#preloader:before,
+#preloader:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  z-index: -1;
+  background-color: #0c1d36;
+  -webkit-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+#preloader:after {
+  left: auto;
+  right: 0;
+}
+#preloader .loader_line {
+  margin: auto;
+  width: 1px;
+  height: 250px;
+  position: relative;
+  overflow: hidden;
+  -webkit-transition: all 0.8s ease 0s;
+  -o-transition: all 0.8s ease 0s;
+  transition: all 0.8s ease 0s;
+}
+.loader_line:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 1px;
+  height: 0%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+  background-color: #fff;
+  -webkit-animation: lineheight 1000ms ease-in-out 0s forwards;
+  -o-animation: lineheight 1000ms ease-in-out 0s forwards;
+  animation: lineheight 1000ms ease-in-out 0s forwards;
+}
+.loader_line:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1px;
+  height: 100%;
+  background-color: #999999;
+  -webkit-transform: translateY(-100%);
+  -ms-transform: translateY(-100%);
+  -o-transform: translateY(-100%);
+  transform: translateY(-100%);
+  -webkit-animation: lineround 1200ms linear 0s infinite;
+  -o-animation: lineround 1200ms linear 0s infinite;
+  animation: lineround 1200ms linear 0s infinite;
+  animation-delay: 2000ms;
+}
+
+@keyframes lineheight {
+  0% {
+    height: 0%;
+  }
+  100% {
+    height: 100%;
+  }
+}
+
+@keyframes lineround {
+  0% {
+    -webkit-transform: translateY(-100%);
+    -ms-transform: translateY(-100%);
+    -o-transform: translateY(-100%);
+    transform: translateY(-100%);
+  }
+  100% {
+    -webkit-transform: translateY(200%);
+    -ms-transform: translateY(200%);
+    -o-transform: translateY(200%);
+    transform: translateY(200%);
+  }
+}
+
+/*hiding all*/
+.preloaded .loader_line:after {
+  opacity: 0;
+}
+.preloaded .loader_line {
+  opacity: 0;
+  height: 100% !important;
+}
+.preloaded:before,
+.preloaded:after {
+  -webkit-animation: preloadedzero 300ms ease-in-out 500ms forwards;
+  -o-animation: preloadedzero 300ms ease-in-out 500ms forwards;
+  animation: preloadedzero 300ms ease-in-out 500ms forwards;
+}
+@keyframes preloadedzero {
+  0% {
+    width: 50%;
+  }
+  100% {
+    width: 0%;
+  }
+}
+.sirah_tm_section {
+  width: 100%;
+  height: auto;
+  clear: both;
+  float: left;
+}
+
+/*---------------------------------------------------*/
+/*	02) SIRA MOBILE MENU
+/*---------------------------------------------------*/
+
+.sirah_tm_mobile_menu {
+  width: 100%;
+  height: auto;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  display: none;
+  z-index: 10;
+}
+.sirah_tm_mobile_menu .mobile_menu_inner {
+  width: 100%;
+  height: auto;
+  float: left;
+  clear: both;
+  background-color: #fff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 10px 20px 10px 20px;
+}
+.sirah_tm_mobile_menu .mobile_in {
+  width: 100%;
+  height: auto;
+  clear: both;
+  float: left;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.sirah_tm_mobile_menu .mobile_in .logo img {
+  max-width: 90px;
+  max-height: 70px;
+}
+.sirah_tm_mobile_menu .trigger {
+  line-height: 0;
+}
+.sirah_tm_mobile_menu .dropdown {
+  width: 100%;
+  height: auto;
+  clear: both;
+  float: left;
+  background-color: #fff;
+  display: none;
+}
+.sirah_tm_mobile_menu .dropdown .dropdown_inner {
+  width: 100%;
+  height: auto;
+  clear: both;
+  float: left;
+  padding: 25px 20px;
+}
+.sirah_tm_mobile_menu .dropdown .dropdown_inner ul {
+  margin: 0px;
+  list-style-type: none;
+}
+.sirah_tm_mobile_menu .dropdown .dropdown_inner ul li {
+  margin: 0px;
+  float: left;
+  width: 100%;
+}
+.sirah_tm_mobile_menu .dropdown .dropdown_inner ul li a {
+  text-decoration: none;
+  color: #ffff;
+  display: inline-block;
+  padding: 0px 0px;
+  font-weight: 500;
+}
+.sirah_tm_mobile_menu .download_cv {
+  padding-top: 20px;
+}
+.sirah_tm_mobile_menu .download_cv a {
+  color: #fff !important;
+  border-radius: 50px;
+  background-color: #f75023;
+  padding: 7px 40px !important;
+}
+.sirah_tm_mobile_menu .hamburger-inner,
+.sirah_tm_mobile_menu .hamburger-inner:after,
+.sirah_tm_mobile_menu .hamburger-inner:before {
+  width: 30px;
+  height: 2px;
+}
+.sirah_tm_mobile_menu .hamburger-box {
+  width: 30px;
+}
+.sirah_tm_mobile_menu .hamburger {
+  padding: 0px;
+}
+
+/*---------------------------------------------------*/
+/*	03) SIRA HEADER
+/*---------------------------------------------------*/
+
+.sirah_tm_header {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  z-index: 10;
+  border-bottom: 1px solid #24315e;
+  padding: 25px 0px;
+
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.sirah_tm_header.animate {
+  padding: 15px 0px;
+  background-color: #fff;
+  border-bottom: 1px solid rgba(36, 0, 0, 0.5);
+}
+.sirah_tm_header .header_in {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.sirah_tm_header .logo img {
+  max-width: 190px;
+  max-height: 80px;
+}
+.sirah_tm_header .menu ul {
+  margin: 0px;
+  list-style-type: none;
+  display: flex;
+}
+.sirah_tm_header .menu ul li {
+  margin-right: 50px;
+}
+.sirah_tm_header .menu ul li a {
+  color: #ffff;
+  font-weight: 500;
+
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.sirah_tm_header.animate .menu ul li a {
+  color: #24315e;
+}
+.sirah_tm_header .menu ul li.current a,
+.sirah_tm_header .menu ul li a:hover {
+  color: #ff4612;
+}
+.sirah_tm_header .button a {
+  display: inline-block;
+  color: #fff;
+  font-family: var(--font-family-grotesk);
+  font-weight: 500;
+  background-color: #24315e;
+  padding: 20px 40px 19px 40px;
+
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.sirah_tm_header .button a:hover {
+  background-color: #fff;
+  color: #24315e;
+}
+.sirah_tm_header.animate .button a {
+  padding: 15px 40px 14px 40px;
+}
+.sirah_tm_header.animate .button a:hover {
+  background-color: #24315e;
+  color: #fff;
+}
+
+/*---------------------------------------------------*/
+/*	04) SIRA HERO
+/*---------------------------------------------------*/
+
+.sirah_tm_hero {
+  width: 100%;
+  min-height: 100vh;
+  float: left;
+  position: relative;
+}
+.sirah_tm_hero .background {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.sirah_tm_hero .content {
+  width: 50%;
+  min-height: 100vh;
+  position: relative;
+  padding-right: 20px;
+}
+.sirah_tm_hero .details {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.sirah_tm_hero .hi {
+  display: inline-block;
+  font-family: var(--font-family-grotesk);
+  font-size: 48px;
+  color: #ffff;
+  font-weight: 500;
+  margin-bottom: 3px;
+}
+.sirah_tm_hero .name {
+  font-size: 88px;
+  letter-spacing: -4px;
+  line-height: 1;
+  color: #f75023;
+  margin-bottom: 20px;
+}
+.sirah_tm_hero .text {
+  font-size: 28px;
+  font-weight: 600;
+  color: #ffff;
+  margin-bottom: 60px;
+}
+.sirah_tm_hero .buttons {
+  display: flex;
+  align-items: center;
+}
+.sirah_tm_hero .sirah_tm_button {
+  width: auto;
+}
+.sirah_tm_button {
+  width: 100%;
+  height: auto;
+  clear: both;
+  float: left;
+}
+.sirah_tm_button a {
+  color: #24315e;
+  border: 2px solid #24315e;
+  display: inline-block;
+  background-color: #fff;
+  font-family: var(--font-family-grotesk);
+  font-weight: 500;
+  padding: 17px 40px;
+
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.sirah_tm_button a:hover {
+  background-color: #f75023;
+  color: #fff;
+}
+.sirah_tm_hero .simple_button {
+  margin-left: 50px;
+}
+.simple_button a {
+  color: #ffff;
+  font-family: var(--font-family-grotesk);
+  font-weight: 500;
+  display: inline-block;
+  position: relative;
+}
+.simple_button a:before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 1px;
+  background-color: #24315e;
+  bottom: 7px;
+  left: 0px;
+
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.simple_button a:hover:before {
+  opacity: 0;
+  visibility: hidden;
+}
+.sirah_tm_hero .quote {
+  position: absolute;
+  bottom: 70px;
+  left: 0px;
+  max-width: 400px;
+}
+.sirah_tm_hero .quote p {
+  margin-left: 46px;
+  color: #ffff;
+  font-weight: 600;
+  font-style: italic;
+  position: relative;
+  z-index: 1;
+}
+.sirah_tm_hero .quote .svg {
+  position: absolute;
+  top: -12px;
+  left: -4px;
+  width: 46px;
+  height: 46px;
+}
+.sirah_tm_hero .social {
+  position: absolute;
+  bottom: 60px;
+  right: 150px;
+  z-index: 2;
+}
+.sirah_tm_hero .social ul {
+  margin: 0px;
+  list-style-type: none;
+}
+.sirah_tm_hero .social ul li {
+  margin: 0px 15px 5px 0px;
+  display: inline-block;
+}
+.sirah_tm_hero .social ul li:last-child {
+  margin-right: 0px;
+}
+.sirah_tm_hero .social ul li a {
+  display: inline-block;
+  position: relative;
+  width: 56px;
+  height: 56px;
+  border-radius: 100%;
+  background-color: #fff;
+}
+.sirah_tm_hero .social ul li .svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.sirah_tm_hero .avatar {
+  position: absolute;
+  top: 50%;
+  right: 0px;
+  width: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+}
+.sirah_tm_hero .avatar img {
+  max-width: 800px;
+  max-height: 800px;
+  border-radius: 50%;
+}
+
+/*---------------------------------------------------*/
+/*	05) SIRA PARTNERS
+/*---------------------------------------------------*/
+
+.sirah_tm_partner {
+  width: 100%;
+  height: auto;
+  clear: both;
+  float: left;
+  background-color: #24315e;
+  padding: 70px 0px 75px 0px;
+  text-align: center;
+  margin-bottom: 120px;
+}
+.sirah_tm_partner .title span {
+  display: inline-block;
+  color: #fff;
+  font-family: var(--font-family-grotesk);
+  font-size: 20px;
+  font-weight: 500;
+  position: relative;
+}
+.sirah_tm_partner .title span:before {
+  position: absolute;
+  content: "";
+  width: 125px;
+  height: 0.5px;
+  background-color: #fff;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 100%;
+  margin-right: 12px;
+}
+.sirah_tm_partner .title span:after {
+  position: absolute;
+  content: "";
+  width: 125px;
+  height: 0.5px;
+  background-color: #fff;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 100%;
+  margin-left: 12px;
+}
+.sirah_tm_partner .partners_list {
+  width: 100%;
+  height: auto;
+  clear: both;
+  float: left;
+  position: relative;
+  margin-top: 15px;
+}
+.sirah_tm_partner .partners_list ul {
+  margin: 0px;
+  list-style-type: none;
+}
+.sirah_tm_partner .partners_list ul li {
+  margin: 0px;
+}
+.sirah_tm_partner .partners_list ul li img {
+  opacity: 0.7;
+  height: 64px;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.sirah_tm_partner .partners_list ul li:hover img {
+  opacity: 1;
+}
+
+/*---------------------------------------------------*/
+/*	06) SIRA FEATURES
+/*---------------------------------------------------*/
+
+.sirah_tm_features {
+  width: 100%;
+  height: auto;
+  clear: both;
+  float: left;
+  margin-bottom: 100px;
+}
+.sirah_tm_features .features_list {
+  width: 100%;
+  height: auto;
+  clear: both;
+  float: left;
+}
+.sirah_tm_features ul {
+  margin: 0px 0px 0px -60px;
+  list-style-type: none;
+}
+.sirah_tm_features ul li {
+  margin: 0px 0px 40px 0px;
+  float: left;
+  padding-left: 60px;
+  width: 33.3333%;
+  position: relative;
+}
+.sirah_tm_features ul li .list_inner {
+  width: 100%;
+  height: auto;
+  clear: both;
+  float: left;
+  position: relative;
+  padding-right: 60px;
+}
+.sirah_tm_features ul li .list_inner:before {
+  position: absolute;
+  content: "";
+  width: 1px;
+  height: 100%;
+  right: 0px;
+  top: 0px;
+  background-color: rgba(36, 49, 94, 0.2);
+}
+.sirah_tm_features ul li .list_inner:after {
+  position: absolute;
+  content: "";
+  width: 1px;
+  height: 0px;
+  right: 0px;
+  top: 0px;
+  background-color: rgba(36, 49, 94, 1);
+  z-index: 1;
+
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.sirah_tm_features ul li .list_inner:hover:after {
+  height: 100%;
+}
+.sirah_tm_features ul li:last-child .list_inner:before {
+  display: none;
+}
+.sirah_tm_features ul li:last-child .list_inner:after {
+  display: none;
+}
+.sirah_tm_features ul li .list_inner {
+  width: 100%;
+  height: auto;
+  clear: both;
+  float: left;
+  position: relative;
+}
+.sirah_tm_features ul li .title {
+  position: relative;
+  margin-bottom: 23px;
+}
+.sirah_tm_features ul li .title .svg {
+  position: absolute;
+  left: 0px;
+  top: -7px;
+  width: 50px;
+  height: 50px;
+}
+.sirah_tm_features ul li .title h3 {
+  font-size: 30px;
+  padding-left: 67px;
+}
+
+/*---------------------------------------------------*/
+/*	07) SIRA SKILLS
+/*---------------------------------------------------*/
+
+.sirah_tm_skills {
+  width: 100%;
+  height: auto;
+  clear: both;
+  float: left;
+  margin-bottom: 120px;
+}
+.sirah_tm_skills .skills_in {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.sirah_tm_skills .left {
+  width: 42%;
+  padding-right: 100px;
+}
+.sirah_tm_main_title {
+  width: 100%;
+  max-width: 650px;
+  height: auto;
+  clear: both;
+  float: left;
+}
+.sirah_tm_main_title span {
+  display: inline-block;
+  color: #ff4612;
+  font-family: var(--font-family-grotesk);
+  font-size: 20px;
+  font-weight: 500;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 21px;
+}
+.sirah_tm_main_title span:before {
+  position: absolute;
+  content: "";
+  width: 24px;
+  height: 0.5px;
+  background-color: #ff4612;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0px;
+}
+.sirah_tm_main_title span:after {
+  position: absolute;
+  content: "";
+  width: 65px;
+  height: 0.5px;
+  background-color: #ff4612;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 100%;
+  margin-left: 12px;
+}
+.sirah_tm_main_title h3 {
+  font-size: 64px;
+  line-height: 1.1;
+}
+.sirah_tm_main_title.centered {
+  text-align: center;
+  margin: 0px auto;
+  float: none;
+}
+.sirah_tm_main_title.centered span:before {
+  width: 55px;
+}
+.sirah_tm_main_title.centered span:after {
+  width: 55px;
+}
+.sirah_tm_main_title.centered span {
+  padding-left: 66px;
+  margin-left: -66px;
+}
+.sirah_tm_skills .text {
+  margin-top: 25px;
+  float: left;
+}
+.sirah_tm_skills .right {
+  width: 58%;
+  position: relative;
+}
+.sirah_tm_skills .right .background {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.sirah_tm_skills .right .content {
+  position: relative;
+  z-index: 1;
+  padding: 100px 75px 75px 100px;
+}
+.sirah_tm_skills .right .content ul {
+  margin: 0px;
+  list-style-type: none;
+}
+.sirah_tm_skills .right .content ul li {
+  margin: 0px 20px 25px 0px;
+  display: inline-block;
+  background-color: #fff;
+  border: 2px solid #24315e;
+  padding: 10px 30px;
+}
+.sirah_tm_skills .right .content ul li span {
+  font-family: var(--font-family-calistoga);
+  color: #24315e;
+}
+.sirah_tm_skills .shape1 {
+  position: absolute;
+  top: -30px;
+  left: -20px;
+}
+.sirah_tm_skills .shape1 .svg {
+  width: 100%;
+  height: 100%;
+}
+.sirah_tm_skills .shape2 {
+  position: absolute;
+  bottom: -11px;
+  right: 35px;
+}
+.sirah_tm_skills .shape2 .svg {
+  width: 100%;
+  height: 100%;
+  color: transparent;
+}
+
+/*---------------------------------------------------*/
+/*	08) SIRA COUNTER
+/*---------------------------------------------------*/
+
+.sirah_tm_counter_section {
+  width: 100%;
+  height: auto;
+  clear: both;
+  float: left;
+  margin-bottom: 100px;
+}
+.sirah_tm_counter_section .counter_list {
+  width: 100%;
+  height: auto;
+  clear: both;
+  float: left;
+}
+.sirah_tm_counter_section ul {
+  margin: 0px 0px 0px -50px;
+  list-style-type: none;
+}
+.sirah_tm_counter_section ul li {
+  margin: 0px 0px 50px 0px;
+  float: left;
+  padding-left: 50px;
+  width: 33.3333%;
+}
+.sirah_tm_counter_section ul li .list_inner {
+  width: 100%;
+  height: auto;
+  clear: both;
+  float: left;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.sirah_tm_counter_section .in {
+  display: inline-block;
+  position: relative;
+}
+.sirah_tm_counter_section .in h3 {
+  font-size: 70px;
+}
+.sirah_tm_counter_section .in:before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 4px;
+  background-color: #24315e;
+  bottom: 6px;
+  left: 0px;
+}
+.sirah_tm_counter_section .title {
+  font-weight: 500;
+  font-size: 24px;
+  font-family: var(--font-family-grotesk);
+  padding-left: 32px;
+}
+
+/*---------------------------------------------------*/
+/*	09) SIRA ABOUT
+/*---------------------------------------------------*/
+
+.sirah_tm_about {
+  width: 100%;
+  height: auto;
+  clear: both;
+  float: left;
+  position: relative;
+  padding: 100px 0px 120px 0px;
+  border-top: 1px solid #24315e;
+  border-bottom: 1px solid #24315e;
+  margin-bottom: 120px;
+}
+.sirah_tm_about .container {
+  z-index: 2;
+}
+.sirah_tm_about .background {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.sirah_tm_about .about_in {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.sirah_tm_about .left {
+  width: 50%;
+  position: relative;
+}
+.sirah_tm_about .experience {
+  position: absolute;
+  bottom: 95px;
+  left: -30px;
+  background-color: #fff;
+  border: 2px solid #24315e;
+  display: flex;
+  align-items: center;
+  padding: 20px 30px 17px 30px;
+}
+.sirah_tm_about .experience h3 {
+  font-weight: 400;
+  font-size: 48px;
+  color: #ff4612;
+  font-family: var(--font-family-calistoga);
+}
+.sirah_tm_about .experience span {
+  font-size: 20px;
+  font-weight: 700;
+  font-family: var(--font-family-grotesk);
+  line-height: 20px;
+  display: inline-block;
+  padding-left: 17px;
+}
+.sirah_tm_about .left img {
+  max-height: 700px;
+}
+.sirah_tm_about .right {
+  width: 50%;
+  padding-left: 50px;
+}
+.sirah_tm_about .right .text {
+  float: left;
+  margin-top: 35px;
+  margin-bottom: 40px;
+}
+.sirah_tm_about .right .text p {
+  margin-bottom: 30px;
+}
+.sirah_tm_about .right .text p:last-child {
+  margin-bottom: 0px;
+}
+.sirah_tm_button_extra {
+  width: 100%;
+  height: auto;
+  clear: both;
+  float: left;
+}
+.sirah_tm_button_extra a {
+  display: inline-block;
+  color: #fff;
+  background-color: #24315e;
+  padding: 18px 40px;
+  font-family: var(--font-family-grotesk);
+
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.sirah_tm_button_extra a:hover {
+  background-color: #fff;
+  color: #24315e;
+}
+.sirah_tm_about .shape,
+.sirah_tm_about .shape2 {
+  position: absolute;
+  z-index: 1;
+}
+.sirah_tm_about .shape {
+  top: 120px;
+  left: -80px;
+}
+.sirah_tm_about .shape2 {
+  bottom: 40px;
+  right: -80px;
+}
+.sirah_tm_about .shape .svg,
+.sirah_tm_about .shape2 .svg {
+  width: 100%;
+  height: 100%;
+}
+
+/*---------------------------------------------------*/
+/*	10) SIRA TESTIMONIALS
+/*---------------------------------------------------*/
+
+.sirah_tm_testimonials {
+  width: 100%;
+  height: auto;
+  clear: both;
+  float: left;
+  margin-bottom: 100px;
+}
+.sirah_tm_testimonials .testimonials_list {
+  width: 100%;
+  height: auto;
+  clear: both;
+  float: left;
+  position: relative;
+}
+.sirah_tm_testimonials ul {
+  margin: 0px;
+  list-style-type: none;
+}
+.sirah_tm_testimonials ul li {
+  margin: 0px;
+  display: flex;
+  align-items: center;
+}
+.sirah_tm_testimonials .left {
+  width: 50%;
+  padding-right: 25px;
+}
+.sirah_tm_testimonials .image {
+  position: relative;
+  float: left;
+}
+.sirah_tm_testimonials .image img {
+  max-height: 500px;
+}
+.sirah_tm_testimonials .image .svg {
+  position: absolute;
+  bottom: -20px;
+  right: 70px;
+  z-index: 1;
+  width: 130px;
+  height: 130px;
+}
+.sirah_tm_testimonials .right {
+  width: 50%;
+  padding-left: 25px;
+}
+.sirah_tm_testimonials .big {
+  width: 100%;
+  float: left;
+  position: relative;
+}
+.sirah_tm_testimonials .big p {
+  color: #24315e;
+  font-weight: 700;
+  font-size: 24px;
+  font-family: var(--font-family-grotesk);
+  line-height: 34px;
+  position: relative;
+  z-index: 1;
+}
+.sirah_tm_testimonials .big .svg {
+  position: absolute;
+  left: 0px;
+  width: 200px;
+  height: 200px;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-top: -10px;
+}
+.sirah_tm_testimonials .normal {
+  width: 100%;
+  float: left;
+  margin-top: 25px;
+  margin-bottom: 35px;
+}
+.sirah_tm_testimonials .details {
+  width: 100%;
+  float: left;
+}
+.sirah_tm_testimonials .details h3 {
+  font-size: 20px;
+  margin-bottom: 6px;
+}
+.sirah_tm_testimonials .prev_button,
+.sirah_tm_testimonials .next_button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.sirah_tm_testimonials .prev_button {
+  left: -100px;
+}
+.sirah_tm_testimonials .next_button {
+  right: -100px;
+}
+.sirah_tm_testimonials .prev_button .svg,
+.sirah_tm_testimonials .next_button .svg {
+  width: 30px;
+  height: 30px;
+}
+
+/*---------------------------------------------------*/
+/*	11) SIRA PORTFOLIO
+/*---------------------------------------------------*/
+
+.sirah_tm_portfolio {
+  width: 100%;
+  height: auto;
+  clear: both;
+  float: left;
+  margin-bottom: 100px;
+}
+.sirah_tm_portfolio ul {
+  margin: 0px 0px 0px -20px;
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.sirah_tm_portfolio ul li {
+  padding-left: 20px;
+  margin-bottom: 20px;
+  width: 33.3333%;
+}
+.sirah_tm_portfolio ul li:nth-of-type(5n + 1),
+.sirah_tm_portfolio ul li:nth-of-type(5n + 2) {
+  width: 50%;
+}
+.sirah_tm_portfolio ul li .list_inner {
+  width: 100%;
+  height: auto;
+  clear: both;
+  float: left;
+  position: relative;
+  border: 2px solid #24315e;
+  overflow: hidden;
+}
+.sirah_tm_portfolio ul li .image {
+  position: relative;
+}
+.sirah_tm_portfolio ul li .image img {
+  position: relative;
+  opacity: 0;
+  min-width: 100%;
+}
+.sirah_tm_portfolio ul li .image .main {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  transform: scale(1) translateZ(0);
+
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.sirah_tm_portfolio ul li .list_inner:hover .image .main {
+  transform: scale(1.1) translateZ(0);
+}
+.sirah_tm_portfolio .details {
+  position: absolute;
+  z-index: 1;
+  bottom: 25px;
+  left: 40px;
+  right: 0px;
+  background-color: #a586ff;
+  border: 2px solid #24315e;
+  border-right: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28px 40px;
+  opacity: 0;
+  visibility: hidden;
+
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.sirah_tm_portfolio ul li .list_inner:hover .details {
+  opacity: 1;
+  visibility: visible;
+}
+.sirah_tm_portfolio .details h3 {
+  font-size: 30px;
+  color: #fff;
+}
+.sirah_tm_portfolio .details .svg {
+  width: 40px;
+  height: 40px;
+}
+.sirah_tm_full_link {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  z-index: 5;
+}
+.sirah_tm_modalbox {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  height: 100vh;
+  z-index: 20;
+  background-color: rgba(0, 0, 0, 0.9);
+  opacity: 0;
+  visibility: hidden;
+
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.sirah_tm_modalbox.opened {
+  opacity: 1;
+  visibility: visible;
+}
+.sirah_tm_modalbox .box_inner {
+  position: absolute;
+  top: 70px;
+  bottom: 70px;
+  width: 968px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #fff;
+  z-index: 1;
+  opacity: 0;
+  visibility: hidden;
+  margin-top: -20px;
+  transition-delay: 0.3s;
+
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.sirah_tm_modalbox.opened .box_inner {
+  opacity: 1;
+  visibility: visible;
+  margin-top: 0px;
+}
+.sirah_tm_modalbox .close {
+  position: fixed;
+  left: 100%;
+  top: 0px;
+  margin-left: 30px;
+  z-index: 10;
+}
+.sirah_tm_modalbox .close a {
+  display: block;
+  width: 40px;
+  height: 40px;
+  text-decoration: none;
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  position: relative;
+
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.sirah_tm_modalbox .close a:hover {
+  border-radius: 100%;
+}
+.sirah_tm_modalbox .close a i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.sirah_tm_modalbox .description_wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  float: left;
+  overflow: hidden;
+  padding: 50px;
+  overflow-y: scroll;
+}
+.sirah_tm_modalbox .description_wrap:before {
+  position: fixed;
+  content: "";
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  height: 50px;
+  background-color: #fff;
+  z-index: 2;
+}
+.sirah_tm_modalbox .description_wrap:after {
+  position: fixed;
+  content: "";
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  height: 50px;
+  background-color: #fff;
+  z-index: 2;
+}
+.sirah_tm_modalbox .description_wrap::-webkit-scrollbar {
+  width: 11px;
+}
+.sirah_tm_modalbox .description_wrap {
+  scrollbar-width: thin;
+  scrollbar-color: #999 #fff;
+}
+.sirah_tm_modalbox .description_wrap:-webkit-scrollbar-track {
+  background: #fff;
+}
+.sirah_tm_modalbox .description_wrap::-webkit-scrollbar-thumb {
+  background-color: #999;
+  border-radius: 10px;
+  border: 3px solid #fff;
+}
+.sirah_tm_portfolio .hidden_content {
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  z-index: -11;
+}
+.sirah_tm_modalbox .popup_details {
+  width: 100%;
+  height: auto;
+  clear: both;
+  float: left;
+}
+.sirah_tm_modalbox .popup_details .top_image {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 33px;
+}
+.sirah_tm_modalbox .popup_details .top_image img {
+  position: relative;
+  min-width: 100%;
+  opacity: 0;
+}
+.sirah_tm_modalbox .popup_details .top_image .main {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+.sirah_tm_modalbox .portfolio_main_title {
+  width: 100%;
+  float: left;
+  margin-bottom: 25px;
+}
+.sirah_tm_modalbox .portfolio_main_title span {
+  display: inline-block;
+  font-family: var(--font-family-extra);
+}
+.sirah_tm_modalbox .portfolio_main_title span a {
+  text-decoration: none;
+  color: #6f6b80;
+}
+.sirah_tm_modalbox .portfolio_main_title h3 {
+  font-size: 30px;
+}
+.sirah_tm_modalbox .main_details {
+  width: 100%;
+  height: auto;
+  clear: both;
+  display: flex;
+  margin-bottom: 60px;
+}
+.sirah_tm_modalbox .main_details .textbox {
+  width: 70%;
+  padding-right: 40px;
+}
+.sirah_tm_modalbox .main_details .textbox p {
+  margin-bottom: 15px;
+}
+.sirah_tm_modalbox .main_details .textbox p:last-child {
+  margin-bottom: 0px;
+}
+.sirah_tm_modalbox .main_details .detailbox {
+  width: 30%;
+  padding-left: 40px;
+}
+.sirah_tm_modalbox .main_details .detailbox > ul {
+  margin: 0px;
+  list-style-type: none;
+}
+.sirah_tm_modalbox .main_details .detailbox > ul > li {
+  margin: 0px 0px 10px 0px;
+  width: 100%;
+  float: left;
+}
+.sirah_tm_modalbox .main_details .detailbox > ul > li:last-child {
+  margin-bottom: 0px;
+}
+.sirah_tm_modalbox .main_details .detailbox .first {
+  font-weight: 500;
+  font-size: 18px;
+  display: block;
+  color: #000;
+  font-family: var(--font-family-extra);
+}
+.sirah_tm_modalbox .main_details .detailbox span {
+  font-family: var(--font-family-extra);
+}
+.sirah_tm_modalbox .main_details .detailbox span a {
+  text-decoration: none;
+  color: #7d7789;
+}
+.sirah_tm_modalbox .additional_images {
+  width: 100%;
+  height: auto;
+  clear: both;
+  float: left;
+}
+.sirah_tm_modalbox .additional_images ul {
+  margin: 0px 0px 0px -30px;
+  list-style-type: none;
+}
+.sirah_tm_modalbox .additional_images ul li {
+  margin: 0px 0px 30px 0px;
+  float: left;
+  width: 50%;
+  padding-left: 30px;
+}
+.sirah_tm_modalbox .additional_images ul li:nth-child(3n-2) {
+  width: 100%;
+}
+.sirah_tm_modalbox .additional_images ul li .list_inner {
+  width: 100%;
+  height: auto;
+  clear: both;
+  float: left;
+  position: relative;
+}
+.sirah_tm_modalbox .additional_images ul li .my_image {
+  position: relative;
+}
+.sirah_tm_modalbox .additional_images ul li .my_image img {
+  opacity: 0;
+  min-width: 100%;
+}
+.sirah_tm_modalbox .additional_images ul li .my_image .main {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+/*---------------------------------------------------*/
+/*	12) SIRA FAQ
+/*---------------------------------------------------*/
+
+.sirah_tm_faq {
+  width: 100%;
+  height: auto;
+  clear: both;
+  float: left;
+  margin-bottom: 105px;
+}
+.accordion_wrap {
+  width: 100%;
+  height: auto;
+  clear: both;
+  float: left;
+  margin-top: 50px;
+}
+.accordion .accordion_content {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  padding: 18px 40px 20px 40px;
+  align-items: center;
+  background-color: #24315e;
+  cursor: pointer;
+  border-radius: 3px;
+}
+.accordion .accordion_content p {
+  color: #d3d6df;
+}
+.accordion .accordion_content {
+  display: none;
+}
+.accordion {
+  margin-bottom: 15px;
+}
+.accordion.active .plus:after {
+  transform: rotate(-90deg);
+}
+.accordion.active .plus:before {
+  transform: rotate(180deg);
+}
+.accordion .plus {
+  background-color: #06d8a7;
+  border-radius: 3px;
+  display: block;
+  width: 30px;
+  height: 30px;
+  right: 40px;
+  position: absolute;
+  top: 50%;
+  margin-top: -15px;
+  z-index: 1;
+}
+.accordion .plus:after {
+  content: "";
+  background-color: #fff;
+  position: absolute;
+  width: 2px;
+  height: 12px;
+  top: 50%;
+  left: 50%;
+  margin: -6px 0 0 -1px;
+  display: block;
+
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.accordion .plus:before {
+  content: "";
+  background-color: #fff;
+  position: absolute;
+  width: 12px;
+  height: 2px;
+  top: 50%;
+  left: 50%;
+  margin: -1px 0 0 -6px;
+  display: block;
+
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.accordion .accordion_header p {
+  font-size: 24px;
+  font-weight: 700;
+  font-family: var(--font-family-grotesk);
+  color: #fff;
+}
+.accordion .accordion_header {
+  position: relative;
+  overflow: hidden;
+  min-height: 70px;
+  display: flex;
+  padding: 28px 70px 30px 40px;
+  align-items: center;
+  background-color: #24315e;
+  margin-bottom: 15px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+/*---------------------------------------------------*/
+/*	13) SIRA FREELANCE
+/*---------------------------------------------------*/
+
+.sirah_tm_freelance {
+  width: 100%;
+  height: auto;
+  clear: both;
+  float: left;
+  position: relative;
+  padding: 97px 20px 120px 20px;
+  margin-bottom: 122px;
+}
+.sirah_tm_freelance .background {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.sirah_tm_freelance .content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+.sirah_tm_freelance .text {
+  max-width: 600px;
+  margin: 0px auto;
+  margin-bottom: 37px;
+}
+.sirah_tm_freelance .text p {
+  font-family: var(--font-family-grotesk);
+  font-size: 56px;
+  font-weight: 700;
+  letter-spacing: -2px;
+  color: #ff4612;
+  line-height: 66px;
+}
+.sirah_tm_freelance .shape,
+.sirah_tm_freelance .shape2 {
+  position: absolute;
+}
+.sirah_tm_freelance .shape {
+  bottom: 0px;
+  left: 0px;
+}
+.sirah_tm_freelance .shape2 {
+  top: 0px;
+  right: 0px;
+}
+.sirah_tm_freelance .shape .svg,
+.sirah_tm_freelance .shape2 .svg {
+  width: 100%;
+  height: 100%;
+}
+
+/*---------------------------------------------------*/
+/*	14) SIRA NEWS
+/*---------------------------------------------------*/
+
+.sirah_tm_news {
+  width: 100%;
+  height: auto;
+  clear: both;
+  float: left;
+  margin-bottom: 140px;
+}
+.sirah_tm_news .news_list {
+  width: 100%;
+  height: auto;
+  clear: both;
+  float: left;
+  margin-top: 50px;
+}
+.sirah_tm_news .news_list ul {
+  margin: 0px 0px 0px -30px;
+  list-style-type: none;
+}
+.sirah_tm_news .news_list ul li {
+  margin: 0px 0px 50px 0px;
+  float: left;
+  padding-left: 30px;
+  width: 33.3333%;
+}
+.sirah_tm_news .news_list ul li .list_inner {
+  width: 100%;
+  height: auto;
+  clear: both;
+  float: left;
+  position: relative;
+}
+.sirah_tm_news .news_list ul li .image {
+  position: relative;
+  border-radius: 120px;
+  border: 2px solid #24315e;
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+.sirah_tm_news .news_list ul li .image img {
+  position: relative;
+  opacity: 0;
+  min-width: 100%;
+}
+.sirah_tm_news .news_list ul li .image .main {
+  position: absolute;
+  top: -2px;
+  bottom: -2px;
+  left: -2px;
+  right: -2px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 120px;
+
+  transform: scale(1) translateZ(0);
+
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.sirah_tm_news .news_list ul li .image:hover .main {
+  transform: scale(1.1) translateZ(0);
+}
+.sirah_tm_news .details {
+  width: 100%;
+  float: left;
+}
+.sirah_tm_news .details .title {
+  float: left;
+  border-bottom: 1px solid rgba(36, 49, 0, 0.15);
+  padding-bottom: 10px;
+  margin-bottom: 7px;
+}
+.sirah_tm_news .details .title h3 {
+  font-size: 24px;
+  line-height: 34px;
+}
+.sirah_tm_news .details .title a {
+  display: inline-block;
+  color: #24315e;
+
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.sirah_tm_news .details .title a:hover {
+  color: #ff4612;
+}
+.sirah_tm_news .details .date span {
+  color: #24315e;
+  font-size: 14px;
+}
+.sirah_tm_news .news_hidden_details {
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  z-index: -11;
+}
+.sirah_tm_modalbox .news_popup_informations {
+  width: 100%;
+  height: auto;
+  clear: both;
+  float: left;
+}
+.sirah_tm_modalbox .news_popup_informations .image {
+  position: relative;
+  margin-bottom: 32px;
+}
+.sirah_tm_modalbox .news_popup_informations .image img {
+  position: relative;
+  opacity: 0;
+  min-width: 100%;
+}
+.sirah_tm_modalbox .news_popup_informations .image .main {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.sirah_tm_modalbox .news_popup_informations .text {
+  width: 100%;
+  float: left;
+}
+.sirah_tm_modalbox .news_popup_informations .text p {
+  margin-bottom: 15px;
+}
+.sirah_tm_modalbox .news_popup_informations .text p:last-child {
+  margin-bottom: 0px;
+}
+
+.sirah_tm_modalbox .news_popup_informations .title h3 {
+  font-size: 30px;
+  margin-bottom: 25px;
+}
+
+/*---------------------------------------------------*/
+/*	15) SIRA CONTACT
+/*---------------------------------------------------*/
+
+.sirah_tm_contact .sirah_tm_main_title h3 {
+  color: #fff;
+}
+.sirah_tm_contact {
+  width: 100%;
+  height: auto;
+  clear: both;
+  float: left;
+  position: relative;
+  padding: 100px 0px;
+}
+.sirah_tm_contact .background {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.sirah_tm_contact .container {
+  z-index: 2;
+}
+.sirah_tm_contact .content {
+  width: 100%;
+  display: flex;
+}
+.sirah_tm_contact .sirah_tm_main_title {
+  margin-bottom: 40px;
+}
+.sirah_tm_contact .short {
+  width: 100%;
+  float: left;
+}
+.sirah_tm_contact .left {
+  width: 50%;
+  padding-right: 30px;
+}
+.sirah_tm_contact .left ul {
+  margin: 0px 0px 100px 0px;
+  list-style-type: none;
+}
+.sirah_tm_contact .left ul li {
+  margin: 0px 0px 17px 0px;
+}
+.sirah_tm_contact .left ul li:last-child {
+  margin-bottom: 0px;
+}
+.sirah_tm_contact .left ul li span {
+  display: block;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 16px;
+  margin-bottom: 6px;
+}
+.sirah_tm_contact .left ul li a {
+  display: inline-block;
+  position: relative;
+  font-size: 36px;
+  font-family: var(--font-family-grotesk);
+  color: #fff;
+}
+.sirah_tm_contact .left ul li a:before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 2px;
+  background-color: #fff;
+  left: 0px;
+  bottom: -3px;
+
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.sirah_tm_contact .left ul li a:hover:before {
+  opacity: 0;
+  visibility: hidden;
+}
+.sirah_tm_contact .copy {
+  background-color: #FFF;
+  width: 100%;
+  float: left;
+  padding: 30px 40px 35px 60px;
+}
+.sirah_tm_contact .copy img {
+  margin-bottom: 6px;
+  max-width: 200px;
+  max-height: 60px;
+}
+.sirah_tm_contact .copy p {
+  color: #f75023;
+}
+.sirah_tm_contact .right {
+  width: 50%;
+  background-color: #fff;
+  padding: 65px 60px 60px 60px;
+  position: relative;
+  top: -4px;
+}
+.sirah_tm_contact .first {
+  width: 100%;
+  float: left;
+}
+.sirah_tm_contact .first ul {
+  margin: 0px;
+  list-style-type: none;
+}
+.sirah_tm_contact .first ul li {
+  margin: 0px 0px 15px 0px;
+  width: 100%;
+  float: left;
+}
+.sirah_tm_contact input {
+  width: 100%;
+  height: 66px;
+  border: 2px solid #24315e;
+  padding: 25px 40px;
+  font-size: 18px;
+  font-weight: 300;
+  font-family: var(--font-family-inter);
+  color: #24315e;
+}
+.sirah_tm_contact input:focus {
+  background-color: transparent;
+  outline: none;
+  border-color: #24315e;
+}
+.sirah_tm_contact .last {
+  width: 100%;
+  float: left;
+}
+.sirah_tm_contact textarea {
+  width: 100%;
+  height: 135px;
+  border: 2px solid #24315e;
+  resize: none;
+  padding: 25px 40px;
+  font-size: 18px;
+  font-weight: 300;
+  font-family: var(--font-family-inter);
+  color: #24315e;
+}
+.sirah_tm_contact textarea:focus {
+  background-color: transparent;
+  outline: none;
+  border-color: #24315e;
+}
+.sirah_tm_contact .sirah_tm_button {
+  margin-bottom: 30px;
+}
+.sirah_tm_contact .sirah_tm_button a {
+  background-color: #06d8a7;
+  display: block;
+  text-align: center;
+}
+.sirah_tm_contact .sirah_tm_button a:hover {
+  background-color: #24315e;
+  color: #fff;
+}
+.sirah_tm_contact .social {
+  margin: 0px;
+  list-style-type: none;
+  text-align: center;
+}
+.sirah_tm_contact .social li {
+  margin: 0px 10px 5px 0px;
+  display: inline-block;
+}
+.sirah_tm_contact .social li:last-child {
+  margin-right: 0px;
+}
+.sirah_tm_contact .social li a {
+  display: inline-block;
+  text-decoration: none;
+  color: #fff;
+  background-color: #24315e;
+  width: 55px;
+  height: 55px;
+  line-height: 55px;
+  border-radius: 100%;
+}
+.sirah_tm_contact .social li a .svg path {
+  fill: #fff;
+}
+.sirah_tm_contact .empty_notice {
+  color: #f52225;
+  margin-bottom: 7px;
+  display: none;
+  text-align: left;
+  font-weight: 500;
+}
+.sirah_tm_contact .contact_error {
+  color: #f52225;
+  text-align: left;
+  font-weight: 500;
+}
+.sirah_tm_contact .returnmessage {
+  color: #3a00ff;
+  margin-bottom: 7px;
+  text-align: left;
+  font-weight: 500;
+}
+.sirah_tm_contact .icon,
+.sirah_tm_contact .icon2 {
+  position: absolute;
+  z-index: 1;
+}
+.sirah_tm_contact .icon .svg,
+.sirah_tm_contact .icon2 .svg {
+  width: 100%;
+  height: 100%;
+}
+.sirah_tm_contact .icon {
+  top: 160px;
+  left: 30px;
+}
+.sirah_tm_contact .icon2 {
+  bottom: 150px;
+  right: 100px;
+}
+
+/*---------------------------------------------------*/
+/*	16) SIRA MAGIC CURSOR
+/*---------------------------------------------------*/
+
+.mouse-cursor {
+  position: fixed;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+  border-radius: 50%;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  visibility: hidden;
+}
+.cursor-inner {
+  margin-left: -3px;
+  margin-top: -3px;
+  width: 6px;
+  height: 6px;
+  z-index: 100;
+  background-color: #ff4612;
+  -webkit-transition: width 0.3s ease-in-out, height 0.3s ease-in-out,
+    margin 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  transition: width 0.3s ease-in-out, height 0.3s ease-in-out,
+    margin 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+.cursor-inner.cursor-hover {
+  margin-left: -40px;
+  margin-top: -40px;
+  width: 80px;
+  height: 80px;
+  background-color: #ff4612;
+  opacity: 0.3;
+}
+.cursor-outer {
+  margin-left: -15px;
+  margin-top: -15px;
+  width: 30px;
+  height: 30px;
+  border: 2px solid #ff4612;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  z-index: 100;
+  opacity: 0.5;
+  -webkit-transition: all 0.08s ease-out;
+  transition: all 0.08s ease-out;
+}
+.cursor-outer.cursor-hover {
+  opacity: 0;
+}
+.sirah_tm_all_wrap[data-magic-cursor="hide"] .mouse-cursor {
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  z-index: -1111;
+}
+
+/*---------------------------------------------------*/
+/*	17) SIRA MEDIA QUERIES (FOR SMALL DEVICES)
+/*---------------------------------------------------*/
+
+@media (max-width: 1600px) {
+  body {
+    font-size: 16px;
+    line-height: 29px;
+  }
+  .container {
+    max-width: 1130px;
+    padding: 0px 30px;
+  }
+  .container.wide {
+    max-width: 1200px;
+  }
+  .sirah_tm_header .button a {
+    padding: 10px 30px 9px 30px;
+  }
+  .sirah_tm_header .logo img {
+    max-width: 140px;
+    max-height: 50px;
+  }
+  .sirah_tm_header {
+    padding: 15px 0px;
+  }
+  .sirah_tm_header.animate {
+    padding: 10px 0px;
+  }
+  .sirah_tm_header.animate .button a {
+    padding: 5px 30px 4px 30px;
+  }
+  .sirah_tm_hero .hi {
+    font-size: 35px;
+  }
+  .sirah_tm_hero .name {
+    font-size: 65px;
+    margin-bottom: 15px;
+  }
+  .sirah_tm_hero .text {
+    font-size: 21px;
+    margin-bottom: 40px;
+  }
+  .sirah_tm_button a {
+    padding: 8px 33px;
+  }
+  .sirah_tm_hero .simple_button {
+    margin-left: 30px;
+  }
+  .sirah_tm_hero .quote {
+    bottom: 32px;
+  }
+  .sirah_tm_hero .social {
+    bottom: 25px;
+    right: 110px;
+  }
+  .sirah_tm_hero .social ul li a {
+    width: 45px;
+    height: 45px;
+  }
+  .sirah_tm_hero .social ul li {
+    margin-right: 8px;
+  }
+  .sirah_tm_hero .avatar img {
+    max-width: 500px;
+    max-height: 500px;
+  }
+  .sirah_tm_partner {
+    padding-bottom: 60px;
+  }
+  .sirah_tm_features ul li .title .svg {
+    width: 45px;
+    height: 45px;
+  }
+  .sirah_tm_features ul li .title h3 {
+    font-size: 27px;
+  }
+  .sirah_tm_main_title span {
+    font-size: 17px;
+    margin-bottom: 10px;
+  }
+  .sirah_tm_main_title h3 {
+    font-size: 50px;
+  }
+  .sirah_tm_main_title {
+    max-width: 600px;
+  }
+  .sirah_tm_counter_section .in h3 {
+    font-size: 60px;
+  }
+  .sirah_tm_counter_section .title {
+    font-size: 21px;
+    padding-left: 25px;
+  }
+  .sirah_tm_button_extra a {
+    padding: 13px 35px;
+  }
+  .sirah_tm_about .right .text {
+    margin-top: 30px;
+    margin-bottom: 35px;
+  }
+  .sirah_tm_about .right .text p {
+    margin-bottom: 20px;
+  }
+  .sirah_tm_portfolio .details h3 {
+    font-size: 27px;
+  }
+  .sirah_tm_portfolio .details {
+    padding: 20px 35px;
+  }
+  .sirah_tm_news .details .title h3 {
+    font-size: 22px;
+    line-height: 30px;
+  }
+  .sirah_tm_contact .left ul li a {
+    font-size: 32px;
+  }
+  .sirah_tm_contact .right {
+    padding-bottom: 35px;
+  }
+  .sirah_tm_contact .icon {
+    left: -30px;
+  }
+  .sirah_tm_contact .icon2 {
+    right: -20px;
+  }
+  .sirah_tm_freelance .shape {
+    left: -52px;
+  }
+  .sirah_tm_freelance .shape2 {
+    right: -70px;
+  }
+  .sirah_tm_modalbox .box_inner {
+    width: 700px;
+    top: 50px;
+    bottom: 50px;
+  }
+  .sirah_tm_modalbox .description_wrap:before {
+    height: 40px;
+  }
+  .sirah_tm_modalbox .description_wrap:after {
+    height: 40px;
+  }
+  .sirah_tm_modalbox .description_wrap {
+    padding: 40px;
+  }
+  .sirah_tm_modalbox .close {
+    margin-left: 20px;
+  }
+}
+@media (max-width: 1040px) {
+  body {
+    font-size: 15px;
+  }
+  .mouse-cursor {
+    display: none;
+  }
+  #preloader {
+    display: none;
+  }
+  .container {
+    padding: 0px 20px;
+  }
+  .sirah_tm_header {
+    display: none;
+  }
+  .sirah_tm_mobile_menu {
+    display: block;
+  }
+  .sirah_tm_hero .details {
+    width: 100%;
+  }
+  .sirah_tm_hero .content {
+    padding-right: 0px;
+    width: 100%;
+  }
+  .sirah_tm_hero .text {
+    font-size: 19px;
+  }
+  .sirah_tm_hero .hi {
+    font-size: 20px;
+  }
+  .sirah_tm_features ul li {
+    width: 50%;
+  }
+  .sirah_tm_hero .social {
+    display: none;
+  }
+  .sirah_tm_features ul li .list_inner:after {
+    display: none;
+  }
+  .sirah_tm_features ul li .list_inner:before {
+    display: none;
+  }
+  .sirah_tm_skills .skills_in {
+    flex-direction: column;
+    align-items: baseline;
+  }
+  .sirah_tm_skills .left {
+    padding-right: 0px;
+    width: 100%;
+    margin-bottom: 40px;
+  }
+  .sirah_tm_skills .right .content {
+    padding: 50px 40px 30px 40px;
+  }
+  .sirah_tm_skills .right .content ul li {
+    margin-right: 10px;
+    margin-bottom: 15px;
+  }
+  .sirah_tm_skills .right {
+    width: 100%;
+  }
+  .sirah_tm_skills .shape1 {
+    display: none;
+  }
+  .sirah_tm_skills .shape2 {
+    display: none;
+  }
+  .sirah_tm_counter_section ul li {
+    width: 50%;
+  }
+  .sirah_tm_about .shape {
+    display: none;
+  }
+  .sirah_tm_about .shape2 {
+    display: none;
+  }
+  .sirah_tm_about .about_in {
+    flex-direction: column;
+    align-items: baseline;
+  }
+  .sirah_tm_about .left img {
+    max-height: 450px;
+  }
+  .sirah_tm_about .experience {
+    bottom: 30px;
+    left: 0px;
+    padding: 15px 25px 12px 25px;
+  }
+  .sirah_tm_about .experience h3 {
+    font-size: 40px;
+  }
+  .sirah_tm_about .experience span {
+    font-size: 17px;
+    padding-left: 12px;
+  }
+  .sirah_tm_about .left {
+    width: 100%;
+    margin-bottom: 40px;
+  }
+  .sirah_tm_about .right {
+    padding-left: 0px;
+    width: 100%;
+  }
+  .sirah_tm_testimonials ul li {
+    flex-direction: column;
+    align-items: baseline;
+  }
+  .sirah_tm_testimonials .left {
+    padding-right: 0px;
+    width: 100%;
+    margin-bottom: 40px;
+  }
+  .sirah_tm_testimonials .right {
+    padding-left: 0px;
+    width: 100%;
+  }
+  .sirah_tm_testimonials .big p {
+    font-size: 20px;
+    line-height: 30px;
+  }
+  .sirah_tm_testimonials .big .svg {
+    width: 120px;
+    height: 120px;
+  }
+  .sirah_tm_portfolio ul li {
+    width: 50% !important;
+  }
+  .sirah_tm_portfolio .details h3 {
+    font-size: 20px;
+  }
+  .sirah_tm_portfolio .details .svg {
+    width: 30px;
+    height: 30px;
+  }
+  .sirah_tm_portfolio .details {
+    padding: 15px 20px;
+  }
+  .sirah_tm_freelance .shape {
+    display: none;
+  }
+  .sirah_tm_freelance .shape2 {
+    display: none;
+  }
+  .sirah_tm_freelance .text p {
+    font-size: 35px;
+    line-height: 40px;
+  }
+  .sirah_tm_freelance .text {
+    margin-bottom: 30px;
+  }
+  .sirah_tm_news .news_list ul li {
+    width: 50%;
+  }
+  .sirah_tm_contact .icon {
+    display: none;
+  }
+  .sirah_tm_contact .icon2 {
+    display: none;
+  }
+  .sirah_tm_contact .content {
+    flex-direction: column;
+    align-items: baseline;
+  }
+  .sirah_tm_contact .left {
+    width: 100%;
+    padding-right: 0px;
+    margin-bottom: 40px;
+  }
+  .sirah_tm_contact .right {
+    top: 0px;
+    width: 100%;
+  }
+  .sirah_tm_contact .left ul li a {
+    font-size: 22px;
+  }
+  .sirah_tm_contact .copy {
+    padding: 20px 20px 25px 20px;
+  }
+  .sirah_tm_contact .right {
+    padding: 45px 30px 40px 30px;
+  }
+  .sirah_tm_contact input {
+    padding: 20px;
+  }
+  .sirah_tm_contact textarea {
+    padding: 20px;
+  }
+  .accordion .accordion_header p {
+    font-size: 22px;
+  }
+  .sirah_tm_modalbox .box_inner {
+    width: 300px;
+  }
+  .sirah_tm_modalbox .description_wrap:before {
+    height: 20px;
+  }
+  .sirah_tm_modalbox .description_wrap:after {
+    height: 20px;
+  }
+  .sirah_tm_modalbox .description_wrap {
+    padding: 20px;
+  }
+  .sirah_tm_modalbox .portfolio_main_title h3 {
+    font-size: 22px;
+  }
+  .sirah_tm_modalbox .main_details {
+    flex-direction: column;
+    align-items: baseline;
+  }
+  .sirah_tm_modalbox .main_details .textbox {
+    padding: 0px;
+    width: 100%;
+    margin-bottom: 40px;
+  }
+  .sirah_tm_modalbox .main_details .detailbox {
+    padding: 0px;
+    width: 100%;
+  }
+  .sirah_tm_modalbox .additional_images ul {
+    margin: 0px;
+  }
+  .sirah_tm_modalbox .additional_images ul li {
+    width: 100% !important;
+    padding-left: 0px;
+  }
+  .sirah_tm_modalbox .box_inner {
+    top: 70px;
+    bottom: 70px;
+  }
+  .sirah_tm_modalbox .close {
+    margin-left: 0px;
+    left: auto;
+    right: 0px;
+    top: -40px;
+  }
+  .sirah_tm_modalbox .close a {
+    width: 30px;
+    height: 30px;
+  }
+  .sirah_tm_modalbox .news_popup_informations .title h3 {
+    font-size: 22px;
+  }
+}
+@media (max-width: 768px) {
+  .sirah_tm_features ul {
+    margin: 0px;
+  }
+  .sirah_tm_features ul li {
+    width: 100%;
+    padding-left: 0px;
+  }
+  .sirah_tm_features ul li .title h3 {
+    font-size: 25px;
+  }
+  .sirah_tm_main_title h3 {
+    font-size: 35px;
+  }
+  .sirah_tm_counter_section ul {
+    margin: 0px;
+  }
+  .sirah_tm_counter_section ul li {
+    width: 100%;
+    padding-left: 0px;
+  }
+  .sirah_tm_portfolio ul li {
+    width: 100% !important;
+  }
+  .sirah_tm_news .news_list ul {
+    margin: 0px;
+  }
+  .sirah_tm_news .news_list ul li {
+    width: 100%;
+    padding-left: 0px;
+  }
+  .sirah_tm_news .details .title h3 {
+    font-size: 20px;
+  }
+  .sirah_tm_news .news_list ul li .image {
+    margin-bottom: 20px;
+  }
+}
