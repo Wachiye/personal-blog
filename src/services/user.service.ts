@@ -22,7 +22,7 @@ for (let i = 0; i < 5; i++) {
         createdAt: new Date()
     });
 
-    // createUser(user);
+    createUser(user);
 }
 /**
  * Service Methods
