@@ -2,7 +2,9 @@
  * Required External Modules
  */
 import 'dotenv/config';
-import { Request, Response, NextFunction } from "express";
+import express, { Request, Response, NextFunction } from "express";
+import * as expressHandlebars from 'express-handlebars';
+import path from "path";
 
 import validateEnv from './utils/validateEnv';
 
@@ -19,6 +21,20 @@ validateEnv();
 const app = new App(
     [{ path: "/users", router: userRouter }, { path: "/posts", router: postRoutes }],
 );
+
+// public folder
+// public folder
+app.app.use(express.static(path.join(__dirname, 'public')))
+// Configure HBS
+const expBHS: expressHandlebars.ExpressHandlebars = expressHandlebars.create({
+    defaultLayout: 'main',
+    extname: 'hbs',
+    layoutsDir: path.join(__dirname, 'views/layouts'),
+    partialsDir: path.join(__dirname, 'views/partials'),
+})
+app.app.set('view engine', 'hbs');
+app.app.set('views', __dirname + '/views');
+app.app.engine('hbs', expBHS.engine);
 
 app.app.use((req: Request, res: Response, next: NextFunction) => {
     // set the CORS policy

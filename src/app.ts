@@ -5,14 +5,12 @@ import cors from "cors";
 import helmet from "helmet";
 import morgan from 'morgan';
 import path from 'path';
-
 const PORT: number = parseInt(process.env.PORT as string, 10);
 
 const MONGO_URI: string = process.env.MONGO_URI as string;
 
 class App {
     public app: express.Application;
-
     constructor(routers: Array<{ path: string, router: Router }>) {
         this.app = express();
 
@@ -28,14 +26,21 @@ class App {
     }
 
     private setConfigurations() {
-        // public folder
-        this.app.use(express.static(path.join(__dirname, 'public')))
-
-        // view engine
-        this.app.set('view engine', 'hbs');
         // cors
         this.app.use(cors());
-        this.app.use(helmet());
+        // this.app.use(helmet({
+        //     contentSecurityPolicy: {
+        //         directives: {
+        //             defaultSrc: ["'self'"],
+        //             scriptSrc: ["'self'", "https://maps.googleapis.com", "https://www.google.com", "https://www.gstatic.com"],
+        //             connectSrc: ["'self'", "https://some-domain.com", "https://some.other.domain.com"],
+        //             styleSrc: ["'self'", "fonts.googleapis.com", "'unsafe-inline'"],
+        //             fontSrc: ["'self'", "fonts.gstatic.com"],
+        //             imgSrc: ["'self'", "https://maps.gstatic.com", "https://maps.googleapis.com", "data:", "https://another-domain.com"],
+        //             frameSrc: ["'self'", "https://www.google.com"]
+        //         }
+        //     },
+        // }));
         /** Parse the request */
         this.app.use(bodyParser.urlencoded({ extended: false }));
         /** Takes care of JSON data */
@@ -47,9 +52,7 @@ class App {
     private initializeRouters(routers: Array<{ path: string, router: Router }>) {
         // default route
         this.app.get('/', (req: Request, res: Response) => {
-            return res.json({
-                message: 'Wachiye Siranjofu API',
-            })
+            res.render("index", { title: "Wachiye Siranjofu" })
         });
         // other routes
         routers.forEach((router) => {

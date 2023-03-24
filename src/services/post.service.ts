@@ -24,7 +24,7 @@ for (let i = 0; i < 10; i++) {
         createdAt: new Date()
     });
 
-    createPost(post);
+    // createPost(post);
 }
 /**
  * Service Methods
