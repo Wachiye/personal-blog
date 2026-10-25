@@ -150,14 +150,16 @@ export default function App() {
 
       // horizontal experience
       const mm = gsap.matchMedia();
-      mm.add("(min-width: 900px)", () => {
+      mm.add("(min-width: 900px) and (min-height: 560px)", () => {
+        const work = document.querySelector<HTMLElement>(".work")!;
         const track = document.querySelector<HTMLElement>(".h-track")!;
+        work.classList.add("h-on");
         const dist = () => track.scrollWidth - window.innerWidth + 80;
-        gsap.to(track, { x: () => -dist(), ease: "none",
-          scrollTrigger: { trigger: ".work", start: "top top", end: () => `+=${dist()}`, scrub: 0.6, pin: true, invalidateOnRefresh: true,
+        const tw = gsap.to(track, { x: () => -dist(), ease: "none",
+          scrollTrigger: { trigger: work, start: "top top", end: () => `+=${dist()}`, scrub: 0.6, pin: true, invalidateOnRefresh: true,
             onUpdate: (s) => gsap.set(".h-progress i", { scaleX: s.progress }) } });
+        return () => { tw.scrollTrigger?.kill(); tw.kill(); gsap.set(track, { clearProps: "transform" }); work.classList.remove("h-on"); };
       });
-
       gsap.utils.toArray<HTMLElement>(".reveal").forEach((el) =>
         gsap.from(el, { y: 60, opacity: 0, duration: 1, ease: "power3.out", scrollTrigger: { trigger: el, start: "top 88%" } }));
       gsap.utils.toArray<HTMLElement>(".big-type").forEach((el) =>
@@ -165,6 +167,7 @@ export default function App() {
       gsap.to(".marquee-inner", { xPercent: -50, duration: 30, ease: "none", repeat: -1 });
     }, root);
     requestAnimationFrame(() => ScrollTrigger.refresh());
+    document.fonts?.ready.then(() => ScrollTrigger.refresh());
     return () => ctx.revert();
   }, [reduced, loaded]);
 
@@ -239,7 +242,7 @@ export default function App() {
           </div>
           <ol className="h-track">
             {jobs.map((j, i) => (
-              <li key={j.org + j.role} className="job" onPointerMove={spot} tabIndex={0} data-cursor={j.start}>
+              <li key={j.org + j.role} className="job" onPointerMove={spot} tabIndex={0} data-lenis-prevent aria-label={`${j.role}, ${j.org}`}>
                 <div className="job-num" aria-hidden="true">{String(i + 1).padStart(2, "0")}</div>
                 <p className="job-date">{j.start} — {j.end}</p>
                 <h3>{j.role}</h3>
