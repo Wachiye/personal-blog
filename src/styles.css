@@ -55,7 +55,9 @@ h2.big-type{font:900 clamp(40px,7vw,108px)/.95 var(--disp);letter-spacing:-.04em
 .manifesto p{font:700 clamp(30px,5vw,76px)/1.12 var(--disp);letter-spacing:-.035em;max-width:1300px;margin:0}
 /* work: sticky title + vertical cards */
 .work{display:grid;grid-template-columns:minmax(260px,.8fr) 2fr;gap:clamp(32px,5vw,80px);align-items:start}
-.work-head{align-self:start}@media (min-height:640px){.work-head{position:sticky;top:96px}}
+.work-head{align-self:start}
+@media (min-width:900px){.work-head{position:sticky;top:calc(var(--navh,64px) + 16px);max-height:calc(100vh - var(--navh,64px) - 24px);overflow:hidden}}
+@media (min-width:900px) and (max-height:760px){.work-head .kicker{margin:0 0 4px}.work-head h2.big-type{font-size:clamp(26px,7.5vh,60px);margin:0 0 4px}.work-head .muted{margin:0;font-size:13px}.role-index{margin-top:clamp(8px,2vh,20px)}.role-index button{padding:clamp(3px,.9vh,10px) 0;font-size:12px}}
 .work-head h2.big-type{font-size:clamp(34px,4.4vw,80px);margin:0 0 12px;overflow-wrap:anywhere}
 .role-index{list-style:none;padding:0;margin:32px 0 0;border-top:1px solid var(--line)}
 .role-index button{display:grid;grid-template-columns:36px 1fr;align-items:center;gap:8px;width:100%;text-align:left;background:none;border:0;border-bottom:1px solid var(--line);padding:11px 0;cursor:pointer;color:var(--mut);font:13px var(--mono);position:relative}
