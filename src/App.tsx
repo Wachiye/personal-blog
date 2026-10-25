@@ -94,14 +94,53 @@ export default function App() {
   const [group, setGroup] = useState<SkillGroup | "All">("All");
   const [hovSkill, setHovSkill] = useState<string | null>(null);
   const [activeJob, setActiveJob] = useState(0);
+  const wide = () => matchMedia("(min-width:900px)").matches;
+  const workMetrics = () => {
+    const sec = document.getElementById("work")!;
+    const top = sec.getBoundingClientRect().top + scrollY;
+    return { top, dist: Math.max(1, sec.offsetHeight - innerHeight) };
+  };
   useEffect(() => {
     const cards = [...document.querySelectorAll<HTMLElement>(".job")];
-    const io = new IntersectionObserver((ents) => ents.forEach((e) => e.isIntersecting && setActiveJob(cards.indexOf(e.target as HTMLElement))),
-      { rootMargin: "-45% 0px -50% 0px" });
-    cards.forEach((c) => io.observe(c));
-    return () => io.disconnect();
+    const n = cards.length;
+    let io: IntersectionObserver | null = null;
+    const fit = () => {
+      const list = document.querySelector<HTMLElement>(".job-list");
+      cards.forEach((c) => {
+        c.style.setProperty("--fit", "1");
+        if (!wide() || !list) return;
+        const k = Math.min(1, (list.clientHeight - 4) / c.offsetHeight);
+        c.style.setProperty("--fit", String(k));
+      });
+    };
+    const onScroll = () => {
+      if (!wide()) return;
+      const { top, dist } = workMetrics();
+      const p = Math.min(0.9999, Math.max(0, (scrollY - top) / dist));
+      setActiveJob(Math.floor(p * n));
+    };
+    const setup = () => {
+      io?.disconnect(); io = null;
+      fit();
+      if (!wide()) {
+        io = new IntersectionObserver((ents) => ents.forEach((e) => e.isIntersecting && setActiveJob(cards.indexOf(e.target as HTMLElement))),
+          { rootMargin: "-45% 0px -50% 0px" });
+        cards.forEach((c) => io!.observe(c));
+      } else onScroll();
+    };
+    setup();
+    addEventListener("scroll", onScroll, { passive: true });
+    addEventListener("resize", setup);
+    document.fonts?.ready.then(fit);
+    return () => { io?.disconnect(); removeEventListener("scroll", onScroll); removeEventListener("resize", setup); };
   }, []);
-  const jumpTo = (i: number) => document.getElementById(`job-${i}`)?.scrollIntoView({ behavior: rm() ? "auto" : "smooth", block: "center" });
+  const jumpTo = (i: number) => {
+    const behavior: ScrollBehavior = rm() ? "auto" : "smooth";
+    if (!wide()) return document.getElementById(`job-${i}`)?.scrollIntoView({ behavior, block: "center" });
+    const { top, dist } = workMetrics();
+    const n = document.querySelectorAll(".job").length;
+    scrollTo({ top: top + dist * ((i + 0.5) / n), behavior });
+  };
   const root = useRef<HTMLDivElement>(null);
   const finishLoad = useCallback(() => setLoaded(true), []);
 
@@ -157,8 +196,8 @@ export default function App() {
       gsap.fromTo(".manifesto .w", { opacity: 0.3 }, { opacity: 1, stagger: 0.1, ease: "none",
         scrollTrigger: { trigger: ".manifesto", start: "top top", end: "+=140%", scrub: true, pin: true } });
 
-      // horizontal experience
-            gsap.utils.toArray<HTMLElement>(".job").forEach((el) =>
+      // stacked experience reveal (narrow screens only; wide uses pinned one-at-a-time cards)
+      if (!matchMedia("(min-width:900px)").matches) gsap.utils.toArray<HTMLElement>(".job").forEach((el) =>
         gsap.from(el, { y: 70, opacity: 0, duration: 1, ease: "power3.out", scrollTrigger: { trigger: el, start: "top 90%" } }));
       gsap.utils.toArray<HTMLElement>(".reveal").forEach((el) =>
         gsap.from(el, { y: 60, opacity: 0, duration: 1, ease: "power3.out", scrollTrigger: { trigger: el, start: "top 88%" } }));
@@ -249,7 +288,7 @@ export default function App() {
           </div>
           <ol className="job-list">
             {jobs.map((j, i) => (
-              <li key={j.org + j.role} id={`job-${i}`} className="job" onPointerMove={spot}>
+              <li key={j.org + j.role} id={`job-${i}`} className="job" data-active={activeJob === i || undefined} onPointerMove={spot}>
                 <div className="job-num" aria-hidden="true">{String(i + 1).padStart(2, "0")}</div>
                 <p className="job-date">{j.start} — {j.end}</p>
                 <h3>{j.role}</h3>
