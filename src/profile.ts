@@ -90,7 +90,7 @@ export const jobs: Job[] = [
     start: "Mar 2022",
     end: "Jun 2022",
     points: [
-      "Worked on a Pharmacy Management and Drug Supply system.",
+      "Worked on a Pharmacy Management and Drug Supply system for a private Italian pharmaceuticals company.",
       "Created UI components.",
       "Integrated REST APIs.",
       "Reviewed and tested web interfaces.",
