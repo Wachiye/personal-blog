@@ -93,6 +93,15 @@ export default function App() {
   const [show3d, setShow3d] = useState(false);
   const [group, setGroup] = useState<SkillGroup | "All">("All");
   const [hovSkill, setHovSkill] = useState<string | null>(null);
+  const [activeJob, setActiveJob] = useState(0);
+  useEffect(() => {
+    const cards = [...document.querySelectorAll<HTMLElement>(".job")];
+    const io = new IntersectionObserver((ents) => ents.forEach((e) => e.isIntersecting && setActiveJob(cards.indexOf(e.target as HTMLElement))),
+      { rootMargin: "-45% 0px -50% 0px" });
+    cards.forEach((c) => io.observe(c));
+    return () => io.disconnect();
+  }, []);
+  const jumpTo = (i: number) => document.getElementById(`job-${i}`)?.scrollIntoView({ behavior: rm() ? "auto" : "smooth", block: "center" });
   const root = useRef<HTMLDivElement>(null);
   const finishLoad = useCallback(() => setLoaded(true), []);
 
@@ -149,17 +158,8 @@ export default function App() {
         scrollTrigger: { trigger: ".manifesto", start: "top top", end: "+=140%", scrub: true, pin: true } });
 
       // horizontal experience
-      const mm = gsap.matchMedia();
-      mm.add("(min-width: 900px) and (min-height: 560px)", () => {
-        const work = document.querySelector<HTMLElement>(".work")!;
-        const track = document.querySelector<HTMLElement>(".h-track")!;
-        work.classList.add("h-on");
-        const dist = () => track.scrollWidth - window.innerWidth + 80;
-        const tw = gsap.to(track, { x: () => -dist(), ease: "none",
-          scrollTrigger: { trigger: work, start: "top top", end: () => `+=${dist()}`, scrub: 0.6, pin: true, invalidateOnRefresh: true,
-            onUpdate: (s) => gsap.set(".h-progress i", { scaleX: s.progress }) } });
-        return () => { tw.scrollTrigger?.kill(); tw.kill(); gsap.set(track, { clearProps: "transform" }); work.classList.remove("h-on"); };
-      });
+            gsap.utils.toArray<HTMLElement>(".job").forEach((el) =>
+        gsap.from(el, { y: 70, opacity: 0, duration: 1, ease: "power3.out", scrollTrigger: { trigger: el, start: "top 90%" } }));
       gsap.utils.toArray<HTMLElement>(".reveal").forEach((el) =>
         gsap.from(el, { y: 60, opacity: 0, duration: 1, ease: "power3.out", scrollTrigger: { trigger: el, start: "top 88%" } }));
       gsap.utils.toArray<HTMLElement>(".big-type").forEach((el) =>
@@ -235,14 +235,21 @@ export default function App() {
 
         <section className="work" id="work" aria-labelledby="work-h">
           <div className="work-head">
-            <p className="kicker">01 / Experience</p>
-            <h2 id="work-h" className="big-type"><Split text="Experience" /></h2>
-            <p className="muted">Mar 2022 – present · 6 roles</p>
-            <div className="h-progress" aria-hidden="true"><i /></div>
+            <div className="work-sticky">
+              <p className="kicker">01 / Experience</p>
+              <h2 id="work-h" className="big-type"><Split text="Experience" /></h2>
+              <p className="muted">Mar 2022 – present · 6 roles</p>
+              <ol className="role-index" aria-label="Roles">
+                {jobs.map((j, i) => (
+                  <li key={i}><button aria-current={activeJob === i ? "step" : undefined} onClick={() => jumpTo(i)}>
+                    <b>{String(i + 1).padStart(2, "0")}</b><span>{j.org}</span><i aria-hidden="true" /></button></li>
+                ))}
+              </ol>
+            </div>
           </div>
-          <ol className="h-track">
+          <ol className="job-list">
             {jobs.map((j, i) => (
-              <li key={j.org + j.role} className="job" onPointerMove={spot} tabIndex={0} data-lenis-prevent aria-label={`${j.role}, ${j.org}`}>
+              <li key={j.org + j.role} id={`job-${i}`} className="job" onPointerMove={spot}>
                 <div className="job-num" aria-hidden="true">{String(i + 1).padStart(2, "0")}</div>
                 <p className="job-date">{j.start} — {j.end}</p>
                 <h3>{j.role}</h3>

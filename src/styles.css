@@ -53,20 +53,17 @@ h2.big-type{font:900 clamp(40px,7vw,108px)/.95 var(--disp);letter-spacing:-.04em
 /* manifesto */
 .manifesto{min-height:100vh;display:flex;align-items:center}
 .manifesto p{font:700 clamp(30px,5vw,76px)/1.12 var(--disp);letter-spacing:-.035em;max-width:1300px;margin:0}
-/* work horizontal */
-.work{padding:0;overflow:hidden}
-.work-head{padding:120px clamp(20px,5vw,72px) 40px}.work-head h2{margin-bottom:14px}
-.h-progress{height:2px;background:var(--line);margin-top:24px;max-width:500px}.h-progress i{display:block;height:100%;background:var(--acc);transform-origin:left;transform:scaleX(0)}
-.h-track{list-style:none;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,460px),1fr));gap:24px;margin:0;padding:0 clamp(20px,5vw,72px) 100px}
-.work.h-on{height:100vh;height:100svh;display:flex;flex-direction:column}
-.work.h-on .work-head{padding:calc(64px + 2vh) clamp(20px,5vw,72px) 2vh;flex:none}
-.work.h-on .work-head .kicker{margin-bottom:1vh}
-.work.h-on .work-head h2{font-size:clamp(28px,7vh,80px);margin-bottom:.6vh}
-.work.h-on .work-head .muted{margin:0;font-size:14px}.work.h-on .h-progress{margin-top:1.2vh}
-.work.h-on .h-track{display:flex;flex:1;min-height:0;width:max-content;align-items:flex-start;padding:0 clamp(20px,5vw,72px) 3vh}
-.work.h-on .job{width:min(520px,42vw);max-height:100%;overflow-y:auto;overscroll-behavior:contain;padding:clamp(18px,3vh,34px)}
-.job{scrollbar-width:thin;scrollbar-color:var(--acc) transparent}.job::-webkit-scrollbar{width:6px}.job::-webkit-scrollbar-thumb{background:var(--acc);border-radius:6px}
-.job{position:relative;flex:none;padding:34px;border:1px solid var(--line);border-radius:22px;background:radial-gradient(400px circle at var(--mx,50%) var(--my,50%),color-mix(in srgb,var(--acc) 14%,transparent),transparent 60%),var(--bg2);overflow:hidden}
+/* work: sticky title + vertical cards */
+.work{display:grid;grid-template-columns:minmax(260px,.8fr) 2fr;gap:clamp(32px,5vw,80px);align-items:start}
+.work-head{align-self:start}@media (min-height:640px){.work-head{position:sticky;top:96px}}
+.work-head h2.big-type{font-size:clamp(34px,4.4vw,80px);margin:0 0 12px;overflow-wrap:anywhere}
+.role-index{list-style:none;padding:0;margin:32px 0 0;border-top:1px solid var(--line)}
+.role-index button{display:grid;grid-template-columns:36px 1fr;align-items:center;gap:8px;width:100%;text-align:left;background:none;border:0;border-bottom:1px solid var(--line);padding:11px 0;cursor:pointer;color:var(--mut);font:13px var(--mono);position:relative}
+.role-index b{font-weight:400}.role-index i{position:absolute;left:0;bottom:-1px;height:1px;width:100%;background:var(--acc);transform:scaleX(0);transform-origin:left;transition:transform .5s}
+.role-index button[aria-current]{color:var(--fg)}.role-index button[aria-current] b{color:var(--acc)}.role-index button[aria-current] i{transform:scaleX(1)}
+.role-index button:hover{color:var(--fg)}
+.job-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:24px}
+.job{scroll-margin:100px;position:relative;flex:none;padding:34px;border:1px solid var(--line);border-radius:22px;background:radial-gradient(400px circle at var(--mx,50%) var(--my,50%),color-mix(in srgb,var(--acc) 14%,transparent),transparent 60%),var(--bg2);overflow:hidden}
 .job-num{position:absolute;right:20px;top:4px;font:900 120px/1 var(--disp);color:transparent;-webkit-text-stroke:1px var(--line)}
 .job-date{font:12px var(--mono);color:var(--acc);text-transform:uppercase;letter-spacing:.12em;margin:0}
 .job h3,.edu h3{font:700 clamp(22px,2.2vw,30px)/1.1 var(--disp);margin:14px 0 6px;letter-spacing:-.02em}
@@ -114,11 +111,11 @@ h2.big-type{font:900 clamp(40px,7vw,108px)/.95 var(--disp);letter-spacing:-.04em
 /* responsive */
 @media (max-width:1100px){.sys-grid{grid-template-columns:repeat(2,1fr)}.nav nav{display:none}}
 @media (max-width:900px){
-.stack-wrap,.rec-grid{grid-template-columns:1fr}.where{position:static}
+.stack-wrap,.rec-grid,.work{grid-template-columns:1fr}.work-head{position:static}.role-index{display:none}.where{position:static}
  .hero-stats{grid-template-columns:repeat(2,1fr)}.awards li{grid-template-columns:1fr;gap:4px}
 }
 @media (max-width:560px){
- section{padding:90px 20px}.work{padding:0}.work-head{padding:90px 20px 30px}.h-track{padding:0 20px 70px}
+ section{padding:90px 20px}
  .sys-grid{grid-template-columns:1fr}.sys{min-height:0}.clock{display:none}.tool{padding:6px 9px}
  .job,.edu{padding:24px}.job-num{font-size:80px}.manifesto{min-height:auto}.hero-w{font-size:12.5vw}
  .btn{padding:13px 18px}.btn.huge{padding:18px 20px}
