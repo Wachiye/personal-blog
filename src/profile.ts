@@ -10,6 +10,7 @@ export const contact = {
 
 export type Job = {
   org: string;
+  orgNote?: string;
   role: string;
   start: string;
   end: string;
@@ -60,6 +61,7 @@ export const jobs: Job[] = [
   },
   {
     org: "Kozi Connect Ltd",
+    orgNote: "sister company of Masaba Services",
     role: "Solutions Architect",
     start: "Jun 2022",
     end: "Feb 2024",
@@ -106,6 +108,10 @@ export type Skill = {
 };
 
 export const skills: Skill[] = [
+  { name: "M-Pesa Daraja", group: "Platforms", where: "Payment integration on Boror, a freelance e-commerce build." },
+  { name: "Paystack", group: "Platforms", where: "Payment integration on Boror, a freelance e-commerce build." },
+  { name: "Airtel Money", group: "Platforms", where: "Payment integration on Boror, a freelance e-commerce build." },
+  { name: "ERPNext", group: "Frameworks", where: "Core skill alongside Frappe, used for ERP work." },
   {
     name: "Java",
     group: "Languages",
@@ -405,3 +411,13 @@ export const awards = [
   },
 ];
 
+
+export type Project = { name: string; url?: string; img: string; note: string; status?: string };
+export const projects: Project[] = [
+  { name: "TaifaCare HMIS", img: "taifacare", note: "Hospital management information system at Konvergenze Network Solutions.", status: "In progress" },
+  { name: "Kozi", url: "https://kozi.co.ke", img: "kozi", note: "Built while Solutions Architect at Kozi Connect." },
+  { name: "Masaba Services", url: "https://masabaservices.com", img: "masaba", note: "Kozi's sister company." },
+  { name: "Boror", url: "https://boror.shop", img: "boror", note: "Freelance (referral). E-commerce with M-Pesa, Paystack and Airtel Money payments." },
+  { name: "Rocket Tradeline", url: "https://rockettradeline.com", img: "rockettradeline", note: "Freelance (referral)." },
+  { name: "FIAT Communications Centre", url: "https://fiatcommunicationscentre.com", img: "fiat", note: "Freelance (referral)." },
+];

@@ -2,7 +2,7 @@ import { lazy, Suspense, useCallback, useEffect, useLayoutEffect, useRef, useSta
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
-import { contact, jobs, skills, skillGroups, systems, education, awards, ticker, type SkillGroup } from "./profile";
+import { contact, jobs, skills, skillGroups, systems, projects, education, awards, ticker, type SkillGroup } from "./profile";
 import Terminal from "./Terminal";
 import { sound } from "./sound";
 
@@ -231,7 +231,7 @@ export default function App() {
       <header className="nav">
         <a href="#top" className="logo" aria-label="Home">JW<span>.</span></a>
         <nav aria-label="Sections">
-          <a href="#work"><b>01</b> Work</a><a href="#systems"><b>02</b> Systems</a><a href="#stack"><b>03</b> Skills</a><a href="#record"><b>04</b> Education</a><a href="#ping"><b>05</b> Contact</a>
+          <a href="#work"><b>01</b> Work</a><a href="#projects"><b>02</b> Projects</a><a href="#systems"><b>03</b> Systems</a><a href="#stack"><b>04</b> Skills</a><a href="#record"><b>05</b> Education</a><a href="#ping"><b>06</b> Contact</a>
         </nav>
         <div className="nav-tools">
           <Clock />
@@ -248,12 +248,12 @@ export default function App() {
           </div>
           <div className="hero-grid" aria-hidden="true" />
           <div className="hero-inner">
-            <p className="kicker hero-fade">Fullstack Software Developer · Computer Science</p>
+            <p className="kicker hero-fade">Full-Stack Developer | M-Pesa Daraja, ERPNext/Frappe, Vue and Node.js</p>
             <h1 id="hero-name" className="hero-title">
               <Split text="WACHIYE" className="hero-w" />
               <span className="hero-sub"><Split text="Jeremiah Siranjofu" /></span>
             </h1>
-            <p className="hero-lede hero-fade">Fullstack Software Developer at Konvergenze Network Solutions on <strong>TaifaCare HMIS</strong>, implementing healthcare interoperability with <em>FHIR, SHR and HIE</em>.</p>
+            <p className="hero-lede hero-fade">I build payment-ready software for African markets. Currently Fullstack Software Developer at Konvergenze Network Solutions on <strong>TaifaCare HMIS</strong>, implementing healthcare interoperability with <em>FHIR, SHR and HIE</em>.</p>
             <div className="hero-cta hero-fade">
               <Magnetic href={`mailto:${contact.email}`} className="btn primary" data-cursor="say hi">Email <span aria-hidden="true">↗</span></Magnetic>
               <Magnetic href="#work" className="btn">Experience <span aria-hidden="true">↓</span></Magnetic>
@@ -295,7 +295,7 @@ export default function App() {
                 <div className="job-num" aria-hidden="true">{String(i + 1).padStart(2, "0")}</div>
                 <p className="job-date">{j.start} — {j.end}</p>
                 <h3>{j.role}</h3>
-                <p className="job-org">{j.org}</p>
+                <p className="job-org">{j.org}{j.orgNote && <small className="job-org-note"> · {j.orgNote}</small>}</p>
                 <ul>{j.points.map((p) => <li key={p}>{p}</li>)}</ul>
                 <p className="tags">{j.skills.map((s) => <span key={s}>{s}</span>)}</p>
               </li>
@@ -303,8 +303,23 @@ export default function App() {
           </ol>
         </section>
 
+        <section className="projects" id="projects" aria-labelledby="proj-h">
+          <p className="kicker">02 / Projects</p>
+          <h2 id="proj-h" className="big-type"><Split text="Projects" /></h2>
+          <ul className="proj-grid">
+            {projects.map((p) => {
+              const body = <>
+                <div className="proj-img"><img src={`/projects/${p.img}.webp`} alt={`${p.name} screenshot`} width={800} height={600} loading="lazy" decoding="async" /></div>
+                <div className="proj-body"><h3>{p.name}{p.url && <span aria-hidden="true"> ↗</span>}</h3><p>{p.note}</p>
+                  <p className="proj-meta">{p.status ?? p.url?.replace("https://", "")}</p></div></>;
+              return <li key={p.name} className="proj reveal" onPointerMove={spot}>{p.url ? <a href={p.url} target="_blank" rel="noopener noreferrer">{body}</a> : <div>{body}</div>}</li>;
+            })}
+          </ul>
+          <p className="proj-also">Also built: <strong>Glamora</strong>, a salon management platform, and <strong>Catolica</strong>, a church ERP — both SIACO projects.</p>
+        </section>
+
         <section className="systems" id="systems" aria-labelledby="sys-h">
-          <p className="kicker">02 / Systems</p>
+          <p className="kicker">03 / Systems</p>
           <h2 id="sys-h" className="big-type"><Split text="Systems built" /></h2>
           <ul className="sys-grid">
             {systems.map((s, i) => (
@@ -319,7 +334,7 @@ export default function App() {
         </section>
 
         <section className="stack" id="stack" aria-labelledby="stack-h">
-          <p className="kicker">03 / Skills</p>
+          <p className="kicker">04 / Skills</p>
           <h2 id="stack-h" className="big-type"><Split text="Technical skills" /></h2>
           <div className="filters" role="group" aria-label="Filter skills">
             {(["All", ...skillGroups] as const).map((g) => (
@@ -341,7 +356,7 @@ export default function App() {
         </section>
 
         <section className="record" id="record" aria-labelledby="rec-h">
-          <p className="kicker">04 / Education</p>
+          <p className="kicker">05 / Education</p>
           <h2 id="rec-h" className="big-type"><Split text="Education & awards" /></h2>
           <div className="rec-grid">
             {education.map((e) => (
@@ -361,7 +376,7 @@ export default function App() {
         </section>
 
         <section className="ping" id="ping" aria-labelledby="ping-h">
-          <p className="kicker">05 / Contact</p>
+          <p className="kicker">06 / Contact</p>
           <h2 id="ping-h" className="big-type ping-h"><Split text="Contact" /></h2>
           <div className="ping-cta">
             <Magnetic href={`mailto:${contact.email}`} className="btn primary huge" data-cursor="send">{contact.email}</Magnetic>

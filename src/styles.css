@@ -85,6 +85,17 @@ h2.big-type{font:900 clamp(40px,7vw,108px)/.95 var(--disp);letter-spacing:-.04em
 .job::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:100%;background:var(--acc);transform:scaleX(var(--cp,0));transform-origin:left}
 .work-progress{display:block;height:2px;margin-top:14px;background:var(--line)}.work-progress i{display:block;height:100%;background:var(--acc);transform:scaleX(var(--wp,0));transform-origin:left}
 }
+/* projects */
+.proj-grid{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.proj{border:1px solid var(--line);border-radius:22px;overflow:hidden;background:radial-gradient(300px circle at var(--mx,-100px) var(--my,-100px),color-mix(in srgb,var(--acc) 16%,transparent),transparent 60%),var(--bg2)}
+.proj>a,.proj>div{display:block;color:inherit;text-decoration:none;height:100%}
+.proj-img{aspect-ratio:4/3;overflow:hidden;border-bottom:1px solid var(--line)}.proj-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
+.proj a:hover img{transform:scale(1.04)}
+.proj-body{padding:20px 22px 24px}.proj h3{font:700 21px/1.15 var(--disp);margin:0 0 8px}.proj h3 span{color:var(--acc)}.proj-body p{color:var(--mut);margin:0 0 12px;font-size:15px}
+.proj-meta{font:12px var(--mono)!important;color:var(--acc)!important;text-transform:uppercase;letter-spacing:.1em;margin:0!important}
+.proj-also{margin:28px 0 0;color:var(--mut)}.proj-also strong{color:var(--fg)}
+.job-org-note{color:var(--mut);font-weight:400}
+@media (max-width:1100px){.proj-grid{grid-template-columns:repeat(2,1fr)}}@media (max-width:640px){.proj-grid{grid-template-columns:1fr}}
 /* systems */
 .sys-grid{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:22px;overflow:hidden}
 .sys{position:relative;padding:30px 26px 34px;background:radial-gradient(300px circle at var(--mx,-100px) var(--my,-100px),color-mix(in srgb,var(--acc) 20%,transparent),transparent 60%),var(--bg);min-height:250px;transition:background-color .3s}
