@@ -106,17 +106,19 @@ export default function App() {
     let io: IntersectionObserver | null = null;
     const fit = () => {
       const list = document.querySelector<HTMLElement>(".job-list");
-      cards.forEach((c) => {
-        c.style.setProperty("--fit", "1");
-        if (!wide() || !list) return;
-        const k = Math.min(1, (list.clientHeight - 4) / c.offsetHeight);
-        c.style.setProperty("--fit", String(k));
-      });
+      cards.forEach((c) => { c.style.height = ""; c.style.setProperty("--fit", "1"); });
+      if (!wide() || !list) return;
+      const H = Math.max(...cards.map((c) => c.offsetHeight));
+      const k = Math.min(1, (list.clientHeight - 4) / H);
+      cards.forEach((c) => { c.style.height = H + "px"; c.style.setProperty("--fit", String(k)); });
     };
     const onScroll = () => {
       if (!wide()) return;
       const { top, dist } = workMetrics();
       const p = Math.min(0.9999, Math.max(0, (scrollY - top) / dist));
+      const sec = document.getElementById("work")!;
+      sec.style.setProperty("--wp", String(p));
+      sec.style.setProperty("--cp", String(p * n - Math.floor(p * n)));
       setActiveJob(Math.floor(p * n));
     };
     const setup = () => {
@@ -284,6 +286,7 @@ export default function App() {
                     <b>{String(i + 1).padStart(2, "0")}</b><span>{j.org}</span><i aria-hidden="true" /></button></li>
                 ))}
               </ol>
+              <div className="work-progress" aria-hidden="true"><i /></div>
             </div>
           </div>
           <ol className="job-list">
