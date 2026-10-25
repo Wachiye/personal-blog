@@ -1,6 +1,7 @@
 import { useMemo, lazy, Suspense, useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Lamp from "./Lamp";
 import Lenis from "lenis";
 import { contact, jobs, skills, skillGroups, systems, projects, education, awards, ticker, type SkillGroup } from "./profile";
 import Terminal from "./Terminal";
@@ -428,6 +429,7 @@ export default function App() {
         <p>{skills.map((s) => s.name).join(", ")}</p>
       </article>
 
+      <Lamp />
       <Terminal open={term} onClose={() => setTerm(false)} actions={{ theme: toggleTheme, sound: toggleSound, print }} />
     </div>
   );

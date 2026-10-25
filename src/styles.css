@@ -162,3 +162,27 @@ h2.big-type{font:900 clamp(40px,7vw,108px)/.95 var(--disp);letter-spacing:-.04em
 .work-meta span{display:block}
 @media (min-width:900px) and (max-height:600px){.work-meta span:first-child{display:none}}
 @media (min-width:900px) and (max-height:520px){.role-index button{padding:5px 0}.role-index{margin-top:8px}.work-progress{margin-top:8px}}
+/* lamp */
+.lamp{position:fixed;top:var(--navh,57px);right:clamp(24px,9vw,170px);z-index:95;width:120px;transform-origin:60px 0;pointer-events:none;--lw:70px}
+.lamp-wire{width:2px;height:var(--lw);background:linear-gradient(var(--line),#666);margin:0 auto}
+.lamp-shade{width:120px;height:80px;filter:drop-shadow(0 8px 18px #0008)}
+.lamp-bulb{opacity:.35;transition:opacity .3s}
+.lamp.is-on .lamp-bulb{opacity:1}
+.lamp.is-on .lamp-shade{filter:drop-shadow(0 8px 18px #0008) drop-shadow(0 18px 30px #ffc86a88)}
+.lamp-cord{position:absolute;left:96px;top:calc(var(--lw) + 58px);width:10px;height:160px;color:var(--mut);overflow:visible}
+.lamp-knob{position:absolute;left:89px;top:calc(var(--lw) + 58px + 60px);width:24px;height:34px;padding:0;border:0;background:none;cursor:grab;pointer-events:auto;touch-action:none;display:grid;place-items:center}
+.lamp-knob span{width:10px;height:18px;border-radius:5px;background:linear-gradient(#ddd,#888);box-shadow:0 2px 6px #0008}
+.lamp.is-on .lamp-knob span{background:linear-gradient(#ffe7a8,#e0a440)}
+.lamp-knob:focus-visible{outline:2px solid var(--acc);outline-offset:3px;border-radius:6px}
+.lamp-knob:active{cursor:grabbing}
+.lamp-hint{position:absolute;left:116px;top:calc(var(--lw) + 58px + 66px);font:11px var(--mono);color:var(--acc);white-space:nowrap;animation:lampHint 2s ease-in-out infinite;transition:opacity .6s}
+.lamp-hint.gone{opacity:0}
+@keyframes lampHint{50%{transform:translateY(5px)}}
+.lamp-layer{position:fixed;inset:0;z-index:94;pointer-events:none;opacity:0;will-change:opacity;contain:strict;
+  background:radial-gradient(circle at var(--lx,80%) var(--ly,50%),rgba(255,214,140,.12) 0,rgba(255,200,120,.05) 160px,transparent 260px),
+  radial-gradient(circle at var(--lx,80%) var(--ly,50%),transparent 0,transparent 150px,rgba(4,4,6,.55) 260px,rgba(4,4,6,.85) 420px)}
+.lamp-beam{position:absolute;left:var(--bx,80%);top:var(--by,120px);width:340px;height:var(--bl,300px);margin-left:-170px;transform-origin:50% 0;transform:rotate(var(--ba,0deg));
+  background:linear-gradient(rgba(255,214,140,.22),rgba(255,214,140,.04));clip-path:polygon(44% 0,56% 0,100% 100%,0 100%);filter:blur(10px)}
+html:not(.lamp-on) .lamp-layer{visibility:hidden}
+@media (max-width:640px){.lamp{transform:scale(.7);transform-origin:100% 0;right:12px;--lw:40px}}
+@media (prefers-reduced-motion:reduce){.lamp-hint{animation:none}}
