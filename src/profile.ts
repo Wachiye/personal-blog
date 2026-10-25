@@ -90,6 +90,7 @@ export const jobs: Job[] = [
     start: "Mar 2022",
     end: "Jun 2022",
     points: [
+      "Worked on a Pharmacy Management and Drug Supply system.",
       "Created UI components.",
       "Integrated REST APIs.",
       "Reviewed and tested web interfaces.",
@@ -180,7 +181,7 @@ export const skills: Skill[] = [
   {
     name: "React",
     group: "Frameworks",
-    where: "AIGOT SRL, Kozi Connect, and the Egerton academic project.",
+    where: "AIGOT SRL pharmacy management and drug supply system, Kozi Connect, and the Egerton academic project.",
   },
   {
     name: "Next.js",

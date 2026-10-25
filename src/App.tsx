@@ -143,6 +143,21 @@ export default function App() {
     const n = document.querySelectorAll(".job").length;
     scrollTo({ top: top + dist * ((i + 0.5) / n), behavior });
   };
+  useEffect(() => {
+    const fitTitles = () => document.querySelectorAll<HTMLElement>("h2.big-type").forEach((h) => {
+      h.style.fontSize = "";
+      const avail = h.clientWidth;
+      
+      let widest = 0;
+      h.querySelectorAll<HTMLElement>(".word").forEach((w) => { widest = Math.max(widest, w.scrollWidth, w.offsetWidth); });
+      widest = Math.max(widest, h.scrollWidth > avail ? h.scrollWidth : 0);
+      if (widest > avail) h.style.fontSize = (parseFloat(getComputedStyle(h).fontSize) * avail / widest * 0.97) + "px";
+    });
+    fitTitles();
+    document.fonts?.ready.then(fitTitles);
+    addEventListener("resize", fitTitles);
+    return () => removeEventListener("resize", fitTitles);
+  }, []);
   const root = useRef<HTMLDivElement>(null);
   const finishLoad = useCallback(() => setLoaded(true), []);
 
@@ -219,7 +234,7 @@ export default function App() {
     e.currentTarget.style.setProperty("--my", `${e.clientY - r.top}px`);
   };
 
-  const manifesto = "Healthcare information systems, school management APIs, ISP billing, and web products — across Konvergenze, Doros, Enatontech, Kozi Connect, and AIGOT.";
+  const manifesto = "Healthcare information systems, school management APIs, ISP billing, pharmacy and drug supply, and web products — across Konvergenze, Doros, Enatontech, Kozi Connect, and AIGOT.";
   const shown = skills.filter((s) => group === "All" || s.group === group);
   const hov = skills.find((s) => s.name === hovSkill);
 
