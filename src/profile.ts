@@ -415,9 +415,9 @@ export const awards = [
 
 export type Project = { name: string; url?: string; img: string; note: string; status?: string; features?: string[]; app?: string };
 export const projects: Project[] = [
-  { name: "Glamora", url: "https://siaco.co.ke/products/glamora", app: "glamora.siaco.co.ke", img: "glamora", status: "Live · SIACO product",
+  { name: "Glamora", url: "https://siaco.co.ke/products/glamora", app: "glamora.siaco.co.ke", img: "glamora", status: "SIACO product",
     note: "Salon and spa management — bookings, POS, M-Pesa payments." },
-  { name: "Catolica", url: "https://siaco.co.ke/products/catolica", app: "catolica.siaco.co.ke", img: "catolica", status: "Live · SIACO product",
+  { name: "Catolica", url: "https://siaco.co.ke/products/catolica", app: "catolica.siaco.co.ke", img: "catolica", status: "SIACO product",
     note: "Church management for parishes — members, giving, ministries." },
   { name: "TaifaCare HMIS", img: "taifacare", note: "Hospital management information system at Konvergenze Network Solutions.", status: "In progress" },
   { name: "Kozi", url: "https://kozi.co.ke", img: "kozi", note: "Built while Solutions Architect at Kozi Connect.",
