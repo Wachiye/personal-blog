@@ -68,7 +68,7 @@ function Cursor() {
 
 function Loader({ done }: { done: () => void }) {
   const [n, setN] = useState(0);
-  const logs = ["mount /dev/resume", "resolve FHIR · SHR · HIE", "spawn workers: frappe, spring, node", "handshake EAT +03:00", "ready"];
+  const logs = ["Jeremiah Siranjofu Wachiye", "Fullstack Software Developer", "Computer Science"];
   useEffect(() => {
     const o = { v: 0 };
     const tw = gsap.to(o, { v: 100, duration: 1.4, ease: "power2.inOut", onUpdate: () => setN(Math.round(o.v)), onComplete: () => {
@@ -175,7 +175,7 @@ export default function App() {
     e.currentTarget.style.setProperty("--my", `${e.clientY - r.top}px`);
   };
 
-  const manifesto = "I build the systems a clinic, a school, or an ISP actually runs on — registration, billing, APIs, and the links that make them agree.";
+  const manifesto = "Healthcare information systems, school management APIs, ISP billing, and web products — across Konvergenze, Doros, Enatontech, Kozi Connect, and AIGOT.";
   const shown = skills.filter((s) => group === "All" || s.group === group);
   const hov = skills.find((s) => s.name === hovSkill);
 
@@ -187,7 +187,7 @@ export default function App() {
       <header className="nav">
         <a href="#top" className="logo" aria-label="Home">JW<span>.</span></a>
         <nav aria-label="Sections">
-          <a href="#work"><b>01</b> Work</a><a href="#systems"><b>02</b> Systems</a><a href="#stack"><b>03</b> Stack</a><a href="#record"><b>04</b> Record</a><a href="#ping"><b>05</b> Ping</a>
+          <a href="#work"><b>01</b> Work</a><a href="#systems"><b>02</b> Systems</a><a href="#stack"><b>03</b> Skills</a><a href="#record"><b>04</b> Education</a><a href="#ping"><b>05</b> Contact</a>
         </nav>
         <div className="nav-tools">
           <Clock />
@@ -204,20 +204,20 @@ export default function App() {
           </div>
           <div className="hero-grid" aria-hidden="true" />
           <div className="hero-inner">
-            <p className="kicker hero-fade">Full-stack Software Developer · Computer Science</p>
+            <p className="kicker hero-fade">Fullstack Software Developer · Computer Science</p>
             <h1 id="hero-name" className="hero-title">
               <Split text="WACHIYE" className="hero-w" />
               <span className="hero-sub"><Split text="Jeremiah Siranjofu" /></span>
             </h1>
-            <p className="hero-lede hero-fade">Healthcare systems on <em>FHIR, SHR &amp; HIE</em>. REST APIs, billing systems, and interfaces in Next.js, Vue and React — currently on <strong>TaifaCare HMIS</strong> at Konvergenze Network Solutions.</p>
+            <p className="hero-lede hero-fade">Fullstack Software Developer at Konvergenze Network Solutions on <strong>TaifaCare HMIS</strong>, implementing healthcare interoperability with <em>FHIR, SHR and HIE</em>.</p>
             <div className="hero-cta hero-fade">
-              <Magnetic href={`mailto:${contact.email}`} className="btn primary" data-cursor="say hi">Email me <span aria-hidden="true">↗</span></Magnetic>
-              <Magnetic href="#work" className="btn">See the work <span aria-hidden="true">↓</span></Magnetic>
-              <Magnetic onClick={() => setTerm(true)} className="btn ghost">&gt;_ open terminal</Magnetic>
+              <Magnetic href={`mailto:${contact.email}`} className="btn primary" data-cursor="say hi">Email <span aria-hidden="true">↗</span></Magnetic>
+              <Magnetic href="#work" className="btn">Experience <span aria-hidden="true">↓</span></Magnetic>
+              <Magnetic onClick={() => setTerm(true)} className="btn ghost">&gt;_ terminal</Magnetic>
             </div>
           </div>
           <dl className="hero-stats hero-fade">
-            <div><dt>Since 2022</dt><dd>6 roles</dd></div>
+            <div><dt>Mar 2022 – present</dt><dd>6 roles</dd></div>
             <div><dt>Egerton University</dt><dd>2nd Upper</dd></div>
             <div><dt>Kozi Connect, 2023</dt><dd>Best Solutions Architect</dd></div>
             <div><dt>Now</dt><dd>TaifaCare HMIS</dd></div>
@@ -233,8 +233,8 @@ export default function App() {
         <section className="work" id="work" aria-labelledby="work-h">
           <div className="work-head">
             <p className="kicker">01 / Experience</p>
-            <h2 id="work-h" className="big-type"><Split text="Six posts." /></h2>
-            <p className="muted">Nov 2024 → Mar 2022. Scroll sideways through the record.</p>
+            <h2 id="work-h" className="big-type"><Split text="Experience" /></h2>
+            <p className="muted">Mar 2022 – present · 6 roles</p>
             <div className="h-progress" aria-hidden="true"><i /></div>
           </div>
           <ol className="h-track">
@@ -252,8 +252,8 @@ export default function App() {
         </section>
 
         <section className="systems" id="systems" aria-labelledby="sys-h">
-          <p className="kicker">02 / Named on the record</p>
-          <h2 id="sys-h" className="big-type"><Split text="Systems, not slogans." /></h2>
+          <p className="kicker">02 / Systems</p>
+          <h2 id="sys-h" className="big-type"><Split text="Systems built" /></h2>
           <ul className="sys-grid">
             {systems.map((s, i) => (
               <li key={s.name} className="sys reveal" onPointerMove={spot} data-hot>
@@ -267,8 +267,8 @@ export default function App() {
         </section>
 
         <section className="stack" id="stack" aria-labelledby="stack-h">
-          <p className="kicker">03 / Stack</p>
-          <h2 id="stack-h" className="big-type"><Split text="Tools, with receipts." /></h2>
+          <p className="kicker">03 / Skills</p>
+          <h2 id="stack-h" className="big-type"><Split text="Technical skills" /></h2>
           <div className="filters" role="group" aria-label="Filter skills">
             {(["All", ...skillGroups] as const).map((g) => (
               <button key={g} aria-pressed={group === g} onClick={() => { setGroup(g); sound.blip(700, 0.03); }}>{g}</button>
@@ -281,16 +281,16 @@ export default function App() {
               ))}
             </ul>
             <aside className="where" id="skill-where" aria-live="polite">
-              <p className="kicker">where it shows up</p>
-              <h3>{hov?.name ?? "Hover or focus a skill"}</h3>
-              <p>{hov?.where ?? "Each tool is tied back to the role or project on the résumé where it was used."}</p>
+              <p className="kicker">Used at</p>
+              <h3>{(hov ?? shown[0])?.name}</h3>
+              <p>{(hov ?? shown[0])?.where}</p>
             </aside>
           </div>
         </section>
 
         <section className="record" id="record" aria-labelledby="rec-h">
-          <p className="kicker">04 / Record</p>
-          <h2 id="rec-h" className="big-type"><Split text="Schooling & honours." /></h2>
+          <p className="kicker">04 / Education</p>
+          <h2 id="rec-h" className="big-type"><Split text="Education & awards" /></h2>
           <div className="rec-grid">
             {education.map((e) => (
               <article key={e.school} className="edu reveal">
@@ -309,8 +309,8 @@ export default function App() {
         </section>
 
         <section className="ping" id="ping" aria-labelledby="ping-h">
-          <p className="kicker">05 / Ping</p>
-          <h2 id="ping-h" className="big-type ping-h"><Split text="Let's build" /><br /><Split text="the next one." /></h2>
+          <p className="kicker">05 / Contact</p>
+          <h2 id="ping-h" className="big-type ping-h"><Split text="Contact" /></h2>
           <div className="ping-cta">
             <Magnetic href={`mailto:${contact.email}`} className="btn primary huge" data-cursor="send">{contact.email}</Magnetic>
           </div>
@@ -319,9 +319,8 @@ export default function App() {
             <li><a href={contact.github} target="_blank" rel="noreferrer">GitHub ↗</a></li>
             <li><a href={contact.linkedin} target="_blank" rel="noreferrer">LinkedIn ↗</a></li>
             <li><a href={contact.site} target="_blank" rel="noreferrer">wachiye.github.io ↗</a></li>
-            <li><button className="linkbtn" onClick={print}>Print / save résumé as PDF ⎙</button></li>
+            <li><button className="linkbtn" onClick={print}>Résumé (print / PDF) ⎙</button></li>
           </ul>
-          <p className="muted foot">Psst — press <kbd>⌘K</kbd> / <kbd>Ctrl K</kbd> or <kbd>`</kbd> and type <code>whoami</code>.</p>
         </section>
       </main>
 

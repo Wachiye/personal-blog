@@ -2,10 +2,10 @@ import { useEffect, useRef, useState } from "react";
 import { contact, jobs, skills, education, awards } from "./profile";
 
 type Line = { t: string; c?: string };
-const HELP = ["help", "whoami", "cat resume", "ls jobs", "skills", "education", "awards", "contact", "goto <work|stack|record|ping>", "theme", "sound", "print", "clear", "exit"];
+const HELP = ["help", "whoami", "cat resume", "ls jobs", "skills", "education", "awards", "contact", "goto <work|systems|stack|record|ping>", "theme", "sound", "print", "clear", "exit"];
 
 export default function Terminal({ open, onClose, actions }: { open: boolean; onClose: () => void; actions: { theme: () => void; sound: () => boolean; print: () => void } }) {
-  const [lines, setLines] = useState<Line[]>([{ t: "wachiye-os v2026 — type `help`. Esc to close.", c: "dim" }]);
+  const [lines, setLines] = useState<Line[]>([{ t: "Jeremiah Siranjofu Wachiye — Fullstack Software Developer", c: "dim" }]);
   const [val, setVal] = useState("");
   const [hist, setHist] = useState<string[]>([]);
   const [hi, setHi] = useState(-1);
@@ -23,11 +23,11 @@ export default function Terminal({ open, onClose, actions }: { open: boolean; on
     const [head, arg] = cmd.split(/\s+/);
     switch (head) {
       case "help": out(HELP.map((h) => `  ${h}`)); break;
-      case "whoami": out([contact.name, "Full-stack Software Developer · Computer Science (Egerton University)", "Currently: Konvergenze Network Solutions — TaifaCare HMIS"]); break;
+      case "whoami": out([contact.name, "Fullstack Software Developer · Computer Science, Egerton University", "Konvergenze Network Solutions — TaifaCare HMIS (Nov 2024 – Present)"]); break;
       case "cat":
         if (arg === "resume" || arg === "resume.txt")
-          out([`# ${contact.name}`, "", ...jobs.flatMap((j) => [`## ${j.role} | ${j.org} (${j.start} – ${j.end})`, ...j.points.map((p) => `  - ${p}`), ""]), ...education.map((e) => `## ${e.program} | ${e.school} (${e.start} – ${e.end})`), "", "Tip: `print` for a clean printable résumé."]);
-        else out([{ t: `cat: ${arg ?? ""}: No such file. Try \`cat resume\`.`, c: "err" }]);
+          out([`# ${contact.name}`, "", ...jobs.flatMap((j) => [`## ${j.role} | ${j.org} (${j.start} – ${j.end})`, ...j.points.map((p) => `  - ${p}`), ""]), ...education.map((e) => `## ${e.program} | ${e.school} (${e.start} – ${e.end})`)]);
+        else out([{ t: `cat: ${arg ?? ""}: No such file`, c: "err" }]);
         break;
       case "ls": out(jobs.map((j, i) => `  ${String(i + 1).padStart(2, "0")}  ${j.start.padEnd(9)} ${j.org} — ${j.role}`)); break;
       case "skills": out([skills.map((s) => s.name).join(" · ")]); break;
@@ -42,10 +42,9 @@ export default function Terminal({ open, onClose, actions }: { open: boolean; on
       case "theme": actions.theme(); out(["theme toggled"]); break;
       case "sound": out([`sound ${actions.sound() ? "on" : "off"}`]); break;
       case "print": onClose(); setTimeout(actions.print, 100); break;
-      case "sudo": out([{ t: "Permission denied. Try emailing instead: `contact`.", c: "err" }]); break;
-      case "clear": setLines([]); break;
+            case "clear": setLines([]); break;
       case "exit": onClose(); break;
-      default: out([{ t: `${head}: command not found. Type \`help\`.`, c: "err" }]);
+      default: out([{ t: `${head}: command not found`, c: "err" }]);
     }
   };
 

@@ -6,7 +6,6 @@ export const contact = {
   linkedin: "https://www.linkedin.com/in/wachiye-siranjofu/",
   github: "https://github.com/Wachiye",
   site: "https://wachiye.github.io",
-  location: "Kenya",
 };
 
 export type Job = {
@@ -110,12 +109,12 @@ export const skills: Skill[] = [
   {
     name: "Java",
     group: "Languages",
-    where: "Core language. Used with Spring Boot and MySQL on the Egerton academic project.",
+    where: "Egerton academic project (Spring Boot, MySQL) and Spring Boot work at Kozi Connect.",
   },
   {
     name: "JavaScript",
     group: "Languages",
-    where: "EUCOSSA module certificate, Oct 2019, and every web role since.",
+    where: "EUCOSSA module certificate (HTML, CSS, JavaScript), Oct 2019.",
   },
   {
     name: "TypeScript",
@@ -135,17 +134,17 @@ export const skills: Skill[] = [
   {
     name: "C#",
     group: "Languages",
-    where: "Listed language alongside C, VB, and VBA.",
+    where: "Listed under languages on the résumé.",
   },
   {
     name: "C",
     group: "Languages",
-    where: "Listed systems language on the résumé.",
+    where: "Listed under languages on the résumé.",
   },
   {
     name: "VB",
     group: "Languages",
-    where: "Visual Basic, paired with the VBA residents-registration project.",
+    where: "Listed under languages on the résumé.",
   },
   {
     name: "VBA",
@@ -160,7 +159,7 @@ export const skills: Skill[] = [
   {
     name: "CSS",
     group: "Languages",
-    where: "EUCOSSA module and UI work from AIGOT through TaifaCare.",
+    where: "EUCOSSA module certificate (HTML, CSS, JavaScript), Oct 2019.",
   },
   {
     name: "Spring Boot",
@@ -175,7 +174,7 @@ export const skills: Skill[] = [
   {
     name: "React",
     group: "Frameworks",
-    where: "Doros, Kozi, AIGOT, and the Egerton academic project.",
+    where: "AIGOT SRL, Kozi Connect, and the Egerton academic project.",
   },
   {
     name: "Next.js",
@@ -190,7 +189,7 @@ export const skills: Skill[] = [
   {
     name: "FastAPI",
     group: "Frameworks",
-    where: "Listed Python framework on the résumé.",
+    where: "Listed under languages and frameworks on the résumé.",
   },
   {
     name: "Frappe",
@@ -285,17 +284,17 @@ export const skills: Skill[] = [
   {
     name: "UI / UX",
     group: "Craft",
-    where: "From AIGOT components to Doros responsiveness and HMIS screens.",
+    where: "UI/UX Design listed under technical skills.",
   },
   {
     name: "Agile / Scrum",
     group: "Craft",
-    where: "Delivery practice called out on the résumé.",
+    where: "Agile/Scrum Development listed under technical skills.",
   },
   {
     name: "Git",
     group: "Craft",
-    where: "Version control on every role listed.",
+    where: "Version control listed on the Doros, Enatontech, Kozi Connect, and AIGOT roles.",
   },
 ];
 
