@@ -1,4 +1,4 @@
-import { lazy, Suspense, useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useMemo, lazy, Suspense, useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
@@ -158,6 +158,13 @@ export default function App() {
     addEventListener("resize", fitTitles);
     return () => removeEventListener("resize", fitTitles);
   }, []);
+  const expStart = useMemo(() => {
+    const M = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+    const d = jobs.map((j) => { const [m, y] = j.start.split(" "); return { label: j.start, t: new Date(+y, M.indexOf(m.slice(0, 3)), 1) }; })
+      .filter((x) => !isNaN(x.t.getTime())).sort((a, b) => +a.t - +b.t)[0];
+    return d;
+  }, []);
+  const expYears = useMemo(() => { const n = new Date(), s = expStart.t; let y = n.getFullYear() - s.getFullYear(); if (n.getMonth() < s.getMonth() || (n.getMonth() === s.getMonth() && n.getDate() < s.getDate())) y--; return y; }, [expStart]);
   const root = useRef<HTMLDivElement>(null);
   const finishLoad = useCallback(() => setLoaded(true), []);
 
@@ -294,7 +301,7 @@ export default function App() {
             <div className="work-sticky">
               <p className="kicker">01 / Experience</p>
               <h2 id="work-h" className="big-type"><Split text="Experience" /></h2>
-              <p className="muted">Mar 2022 – present · 6 roles</p>
+              <p className="muted work-meta"><span>{expStart.label} – present</span><span>{expYears}+ years experience · {jobs.length} roles</span></p>
               <ol className="role-index" aria-label="Roles">
                 {jobs.map((j, i) => (
                   <li key={i}><button aria-current={activeJob === i ? "step" : undefined} onClick={() => jumpTo(i)}>
