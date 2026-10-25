@@ -93,6 +93,7 @@ h2.big-type{font:900 clamp(40px,7vw,108px)/.95 var(--disp);letter-spacing:-.04em
 .proj a:hover img{transform:scale(1.04)}
 .proj-body{padding:20px 22px 24px}.proj h3{font:700 21px/1.15 var(--disp);margin:0 0 8px}.proj h3 span{color:var(--acc)}.proj-body p{color:var(--mut);margin:0 0 12px;font-size:15px}
 .proj-meta{font:12px var(--mono)!important;color:var(--acc)!important;text-transform:uppercase;letter-spacing:.1em;margin:0!important}
+.proj-feat{margin:0 0 14px;padding-left:18px;color:var(--mut);font-size:14px}.proj-feat li{margin-bottom:4px}.proj-app{font:12px var(--mono)!important;color:var(--mut)!important;margin:6px 0 0!important}
 .proj-also{margin:28px 0 0;color:var(--mut)}.proj-also strong{color:var(--fg)}
 .job-org-note{color:var(--mut);font-weight:400}
 @media (max-width:1100px){.proj-grid{grid-template-columns:repeat(2,1fr)}}@media (max-width:640px){.proj-grid{grid-template-columns:1fr}}

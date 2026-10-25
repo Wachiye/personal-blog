@@ -413,8 +413,14 @@ export const awards = [
 ];
 
 
-export type Project = { name: string; url?: string; img: string; note: string; status?: string };
+export type Project = { name: string; url?: string; img: string; note: string; status?: string; features?: string[]; app?: string };
 export const projects: Project[] = [
+  { name: "Glamora", url: "https://siaco.co.ke/products/glamora", app: "glamora.siaco.co.ke", img: "glamora", status: "Live · SIACO product",
+    note: "Salon and spa management for Kenya — bookings, POS, M-Pesa payments, staff and stock in one app.",
+    features: ["Appointments board for stylists, walk-ins and the front desk", "Staff & roles: owner, receptionist, stylist and customer workspaces", "M-Pesa payments by STK push in KES, straight to your till", "Multi-branch ready"] },
+  { name: "Catolica", url: "https://siaco.co.ke/products/catolica", app: "catolica.siaco.co.ke", img: "catolica", status: "Live · SIACO product",
+    note: "Church management for parishes — members, giving, ministries, classes and parish admin in one place.",
+    features: ["Parishioner app, mobile-friendly for everyday parish interactions", "Parish office console for configuration and detailed records", "People & ministry: members, staff, classes and sermons", "Donations & finances: giving and operational money in one place"] },
   { name: "TaifaCare HMIS", img: "taifacare", note: "Hospital management information system at Konvergenze Network Solutions.", status: "In progress" },
   { name: "Kozi", url: "https://kozi.co.ke", img: "kozi", note: "Built while Solutions Architect at Kozi Connect." },
   { name: "Masaba Services", url: "https://masabaservices.com", img: "masaba", note: "Kozi's sister company." },

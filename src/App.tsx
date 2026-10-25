@@ -325,12 +325,11 @@ export default function App() {
             {projects.map((p) => {
               const body = <>
                 <div className="proj-img"><img src={`/projects/${p.img}.webp`} alt={`${p.name} screenshot`} width={800} height={600} loading="lazy" decoding="async" /></div>
-                <div className="proj-body"><h3>{p.name}{p.url && <span aria-hidden="true"> ↗</span>}</h3><p>{p.note}</p>
-                  <p className="proj-meta">{p.status ?? p.url?.replace("https://", "")}</p></div></>;
+                <div className="proj-body"><h3>{p.name}{p.url && <span aria-hidden="true"> ↗</span>}</h3><p>{p.note}</p>{p.features && <ul className="proj-feat">{p.features.map((f) => <li key={f}>{f}</li>)}</ul>}
+                  <p className="proj-meta">{p.status ?? p.url?.replace("https://", "")}</p>{p.app && <p className="proj-app">{p.app}</p>}</div></>;
               return <li key={p.name} className="proj reveal" onPointerMove={spot}>{p.url ? <a href={p.url} target="_blank" rel="noopener noreferrer">{body}</a> : <div>{body}</div>}</li>;
             })}
           </ul>
-          <p className="proj-also">Also built: <strong>Glamora</strong>, a salon management platform, and <strong>Catolica</strong>, a church ERP — both SIACO projects.</p>
         </section>
 
         <section className="systems" id="systems" aria-labelledby="sys-h">
